@@ -269,15 +269,17 @@
   }
   .hero-headline {
     font-family: var(--font-display);
-    font-size: clamp(32px, 5.5vw, 78px);
+    font-size: clamp(30px, 5.5vw, 78px);
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 1.1;
     color: var(--white);
     margin-bottom: 40px;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeUp 0.9s 0.5s forwards;
+    text-wrap: balance;
   }
+  .hero-headline .br-mobile { display: none; }
   .hero-headline em {
     font-style: italic;
     color: var(--gris-claro);
@@ -1201,9 +1203,11 @@
     .nav-cta { padding: 8px 14px; font-size: 9px; letter-spacing: 2px; }
     #hero { min-height: 92vh; }
     .hero-content { padding: 0 20px; }
-    .hero-tag { font-size: 9px; letter-spacing: 3px; margin-bottom: 20px; }
+    .hero-tag { font-size: 9px; letter-spacing: 3px; margin-bottom: 18px; }
     .hero-tag::before { width: 32px; }
-    .hero-body { font-size: 14px; line-height: 1.75; margin-bottom: 36px; }
+    .hero-headline { font-size: 30px; line-height: 1.15; margin-bottom: 28px; }
+    .hero-headline .br-mobile { display: inline; }
+    .hero-body { font-size: 14px; line-height: 1.7; margin-bottom: 32px; }
     .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
     .hero-scroll { right: 20px; bottom: 24px; font-size: 8px; letter-spacing: 2px; }
     .hero-scroll::after { height: 40px; }
@@ -1253,6 +1257,8 @@
     .nav-inner { padding: 14px 16px; }
     .nav-logo svg { height: 40px; }
     .hero-content { padding: 0 16px; }
+    .hero-headline { font-size: 26px; margin-bottom: 24px; }
+    .hero-body { font-size: 13px; margin-bottom: 28px; }
     .about-img-counter {
       left: 8px;
       top: 12px;
@@ -1439,7 +1445,7 @@
   <div class="hero-content">
     <div class="hero-tag">Noir Barber Club — Madrid</div>
     <h1 class="hero-headline">
-      <span class="hero-bracket">{</span> Esto no es una peluquería <span class="hero-bracket">}</span>
+      <span class="hero-bracket">{</span> Esto no es<br class="br-mobile"> una peluquería <span class="hero-bracket">}</span>
     </h1>
     <p class="hero-body">
       Aquí no encontrarás revistas viejas ni sillas de espera incómodas. 
