@@ -227,7 +227,7 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('https://www.noirclub.es/wp-content/uploads/2025/12/barberia-pozuelo-alarcon-noir-15-scaled.jpg');
+    background-image: url('./img/header.jpg');
     background-size: cover;
     background-position: center 30%;
     filter: brightness(0.45);
@@ -1266,6 +1266,17 @@
 
   /* ─── BOOKING MODAL ─── */
   body.modal-open { overflow: hidden; }
+  /* Mientras el modal está abierto, restauramos el cursor del sistema
+     (el custom #cursor tiene z-index inferior al modal y se "pierde") */
+  body.modal-open,
+  body.modal-open * { cursor: auto !important; }
+  body.modal-open a,
+  body.modal-open button,
+  body.modal-open .btn,
+  body.modal-open .nav-cta,
+  body.modal-open [data-booking-close] { cursor: pointer !important; }
+  body.modal-open #cursor,
+  body.modal-open #cursor-ring { display: none !important; }
   .booking-modal {
     position: fixed;
     inset: 0;
@@ -1609,16 +1620,6 @@
 
       <div class="service-card">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="6"/><path d="M5 9v6M19 9v6M3 5l4 4M21 5l-4 4"/></svg>
-        </div>
-        <h3>Corte Rapado</h3>
-        <p>Limpio, definido, sin concesiones. Para los que tienen su estilo claro.</p>
-        <span class="price">14€</span>
-        <span class="price-from">A máquina</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M6 21v-3a6 6 0 0112 0v3"/></svg>
         </div>
         <h3>Corte Niño</h3>
@@ -1707,7 +1708,7 @@
         <div class="loc-district">Madrid Centro</div>
         <img
           class="loc-img"
-          src="https://www.noirclub.es/wp-content/uploads/2025/12/chueca-300x262.jpg"
+          src="./img/chueca.jpg"
           alt="Noir Chueca"
         />
         <div class="loc-info">
@@ -1742,7 +1743,7 @@
         <div class="loc-district">Pozuelo de Alarcón</div>
         <img
           class="loc-img"
-          src="https://www.noirclub.es/wp-content/uploads/2025/12/pozuelo-300x264.jpg"
+          src="./img/pozuelo.jpg"
           alt="Noir Pozuelo"
         />
         <div class="loc-info">
