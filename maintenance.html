@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOiR {Barber Club} — Volvemos pronto</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --noir-deep: #0e0d0f;
+    --noir-brand: #332f33;
+    --gris-claro: #beb2bd;
+    --gold: #c9a96e;
+    --white: #ffffff;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Nunito Sans', sans-serif;
+  }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--noir-deep);
+    color: var(--gris-claro);
+    font-family: var(--font-body);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bg-noir {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(201,169,110,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 560px;
+  }
+
+  .logo {
+    margin: 0 auto 56px;
+    opacity: 0.9;
+  }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .tag::before, .tag::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 58px);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 28px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gris-claro);
+    display: block;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+    color: var(--gris-claro);
+  }
+  p.small {
+    font-size: 13px;
+    color: rgba(190,178,189,0.65);
+    margin-top: 32px;
+    margin-bottom: 0;
+  }
+
+  .actions {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+  .btn:hover {
+    background: var(--gold);
+    color: var(--noir-deep);
+  }
+  .btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+  }
+
+  .link {
+    color: var(--gris-claro);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+    padding-bottom: 2px;
+  }
+  .link:hover { border-bottom-color: var(--gold); }
+
+  .divider {
+    width: 1px;
+    height: 56px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin: 48px auto 0;
+  }
+
+  @media (max-width: 560px) {
+    .logo svg { height: 48px !important; }
+    h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+  <div class="bg-noir"></div>
+  <div class="container">
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 218.56 154.74" height="64" style="display:block; margin:0 auto;">
+        <defs>
+          <style>.flcls-1{font-family:'Playfair Display',serif;font-size:35px;}.flcls-1,.flcls-2{fill:#fff;}.flcls-3{letter-spacing:-.01em;}.flcls-4{letter-spacing:-.01em;}.flcls-5{letter-spacing:-.02em;}.flcls-6{letter-spacing:.04em;}.flcls-7{letter-spacing:0em;}.flcls-8{letter-spacing:0em;}</style>
+        </defs>
+        <path class="flcls-2" d="M124.64,31.37c-7.88-8.17-17.2-12.25-27.95-12.25s-20.14,3.6-27.92,10.81c-8.77,8.14-13.24,18.6-13.42,31.39L22.48,21.01H0v2.26c2.4,0,4.19.18,5.38.55,2.4.77,4.23,1.61,5.47,2.51,1.24.9,3.06,2.75,5.47,5.56v57.62c0,4.64-.45,7.62-1.34,8.92-1.47,2.12-3.97,3.18-7.51,3.18h-2.87v2.26h28.84v-2.26h-2.93c-3.22,0-5.6-.85-7.15-2.57-1.1-1.26-1.65-4.44-1.65-9.53v-51.02l43.33,52.93s0,0,0,0c.62.74,1.26,1.48,1.94,2.19,7.76,8.11,17.34,12.16,28.75,12.16s20.9-4.15,28.84-12.46c7.94-8.31,11.91-18.76,11.91-31.34s-3.94-22.41-11.82-30.58ZM114.86,92.32c-5.07,6.07-11.5,9.1-19.28,9.1-7.29,0-13.16-2.77-17.6-8.31-5.78-7.29-8.68-17.7-8.68-31.22s2.79-23.22,8.37-30.06c4.48-5.5,10.43-8.25,17.84-8.25,7.9,0,14.09,2.77,18.57,8.31,5.58,6.97,8.37,17.54,8.37,31.71,0,13.08-2.54,22.65-7.61,28.72Z"/>
+        <path class="flcls-2" d="M205.86,98.08c-2.81-1.82-6.17-5.51-10.08-11.06l-17.11-24.18c6.97-1.57,12.11-4.27,15.43-8.08,3.32-3.81,4.98-8.31,4.98-13.49,0-4.85-1.46-9.02-4.37-12.53-2.91-3.5-4.89-4.39-9.07-5.7-4.18-1.31-8.37-2.09-21.91-2.09v2.32h3.88c5.34,0,10.4,2.67,13.64,5.97,3.24,3.29,4.08,7.57,4.08,12.84s-2.01,9.82-6.02,13.3c-3.61,3.14-8.81,4.85-15.58,5.17v3.21c3.18.11,6.12,1.78,7.88,4.48l10.96,16.84c13.48,18.79,9.76,18.79,34.29,18.79v-2.3c-4.52-.5-8.19-1.66-11-3.48Z"/>
+        <path class="flcls-2" d="M134.67,23.27h2.93c1.96,0,3.83.49,5.62,1.47,1.26.73,2.1,1.61,2.51,2.63.53,1.34.79,4.11.79,8.31v53.52c0,4.97-.49,8.11-1.47,9.41-1.55,2-4.03,2.99-7.45,2.99h-2.93v2.26h23.58V21.01h-23.58v2.26Z"/>
+        <circle class="flcls-2" cx="150.96" cy="7.29" r="7.29"/>
+        <text class="flcls-1" transform="translate(3.99 146.31)"><tspan class="flcls-6" x="0" y="0">{</tspan><tspan class="flcls-8" x="11.9" y="0">Ba</tspan><tspan class="flcls-3" x="51.48" y="0">r</tspan><tspan class="flcls-7" x="66.53" y="0">be</tspan><tspan class="flcls-5" x="104.3" y="0">r</tspan><tspan class="flcls-7" x="119.31" y="0" xml:space="preserve"> Clu</tspan><tspan class="flcls-4" x="183.15" y="0">b</tspan><tspan class="flcls-7" x="202.33" y="0">}</tspan></text>
+      </svg>
+    </div>
+
+    <div class="tag">Estamos puliendo detalles</div>
+
+    <h1>
+      Volvemos<br>
+      <em>muy pronto.</em>
+    </h1>
+
+    <p>
+      Estamos haciendo mejoras en la web. Mientras tanto,
+      sigues pudiendo reservar y contactarnos por los canales de siempre.
+    </p>
+
+    <div class="actions">
+      <a href="https://wa.me/34682768894" target="_blank" class="btn">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        <span>Contactar por WhatsApp</span>
+      </a>
+      <a href="https://www.instagram.com/noirbarberclub" target="_blank" class="link">@noirbarberclub</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="small">Noir Barber Club — Madrid</p>
+  </div>
+</body>
+</html>
