@@ -1136,6 +1136,30 @@
     transition: color 0.3s;
   }
   .footer-nav a:hover { color: var(--gris-noir); }
+  .footer-legal {
+    max-width: 1280px;
+    margin: 20px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(191,178,189,0.08);
+    text-align: center;
+  }
+  .footer-legal-nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+    font-family: var(--font-ui);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .footer-legal-nav a {
+    color: rgba(127,119,122,0.55);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-legal-nav a:hover { color: var(--gold); }
 
   /* ─── SCROLL REVEAL ─── */
   .reveal {
@@ -1274,6 +1298,97 @@
     .about-img-counter .lbl { font-size: 8px; letter-spacing: 1.5px; }
     .insta-grid { grid-template-columns: 1fr; }
     .footer-nav { gap: 10px 16px; }
+  }
+
+  /* ─── COOKIE BANNER ─── */
+  .cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 880px;
+    margin: 0 auto;
+    background: var(--noir-brand);
+    border: 1px solid rgba(201,169,110,0.28);
+    padding: 20px 24px;
+    z-index: 9000;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    animation: cookieSlideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  @keyframes cookieSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .cookie-banner[hidden] { display: none; }
+  .cookie-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .cookie-banner p {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--gris-claro);
+    margin: 0;
+  }
+  .cookie-banner a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,169,110,0.35);
+    transition: border-color 0.3s;
+  }
+  .cookie-banner a:hover { border-bottom-color: var(--gold); }
+  .cookie-banner-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: var(--transition);
+    background: transparent;
+  }
+  .cookie-btn-secondary {
+    border-color: rgba(191,178,189,0.3);
+    color: var(--gris-claro);
+  }
+  .cookie-btn-secondary:hover {
+    border-color: var(--gris-claro);
+    color: var(--white);
+  }
+  .cookie-btn-primary {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--noir-deep);
+  }
+  .cookie-btn-primary:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+  @media (max-width: 640px) {
+    .cookie-banner {
+      bottom: 14px;
+      left: 12px;
+      right: 12px;
+      padding: 16px 18px;
+    }
+    .cookie-banner-inner {
+      flex-direction: column;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .cookie-banner p { font-size: 12px; }
+    .cookie-banner-actions { gap: 8px; }
+    .cookie-btn { flex: 1; padding: 12px 14px; font-size: 9px; letter-spacing: 2px; }
   }
 
   /* ─── BOOKING MODAL ─── */
@@ -1888,7 +2003,25 @@
       <li><a href="https://booksy.com/es-es/instant-experiences/widget/120994,145716,174546" data-booking="widget" target="_blank" rel="noopener">Cita Previa</a></li>
     </ul>
   </div>
+  <div class="footer-legal">
+    <ul class="footer-legal-nav">
+      <li><a href="/aviso-legal.html">Aviso Legal</a></li>
+      <li><a href="/privacidad.html">Política de Privacidad</a></li>
+      <li><a href="/cookies.html">Política de Cookies</a></li>
+    </ul>
+  </div>
 </footer>
+
+<!-- ─── COOKIE BANNER ─── -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <div class="cookie-banner-inner">
+    <p>Usamos cookies propias y de terceros (Booksy, Google Fonts, Vercel) para que la web funcione correctamente y mejorar tu experiencia. Más información en nuestra <a href="/cookies.html">Política de Cookies</a>.</p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="cookie-btn cookie-btn-secondary" data-cookie-reject>Rechazar</button>
+      <button type="button" class="cookie-btn cookie-btn-primary" data-cookie-accept>Aceptar</button>
+    </div>
+  </div>
+</div>
 
 <!-- ─── BOOKING MODAL ─── -->
 <div id="booking-modal" class="booking-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
@@ -1966,6 +2099,27 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
+
+  // ─── COOKIE BANNER
+  (function() {
+    const STORAGE_KEY = 'noir_cookie_consent';
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    let stored = null;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    if (!stored) banner.hidden = false;
+
+    function setConsent(value) {
+      try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+      banner.hidden = true;
+    }
+
+    banner.addEventListener('click', function(e) {
+      if (e.target.closest('[data-cookie-accept]')) setConsent('accepted');
+      else if (e.target.closest('[data-cookie-reject]')) setConsent('rejected');
+    });
+  })();
 
   // ─── BOOKING MODAL
   (function() {
