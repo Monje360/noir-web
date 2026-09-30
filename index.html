@@ -2,12 +2,17 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>NOiR {Barber Club} — Esto no es una peluquería</title>
-<meta name="description" content="Noir Barber Club Madrid. Esto no es una peluquería. Corte, afeitado y experiencias premium en Chueca y Pozuelo.">
+<title>NOiR {Barber Club} — Barbería en Pozuelo de Alarcón</title>
+<meta name="description" content="Noir Barber Club Pozuelo. Esto no es una peluquería. Corte, barba, afeitado con navaja y la Noir Experience en la Avenida de Europa, 18, Pozuelo de Alarcón. Reserva online.">
 <meta name="theme-color" content="#0e0d0f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NOiR {Barber Club} — Esto no es una peluquería">
+<meta property="og:description" content="Barbería en Pozuelo de Alarcón. Corte, barba y afeitado con la precisión de quien convirtió su oficio en arte.">
+<meta property="og:image" content="https://www.noirbarberclub.com/img/header.jpg">
+<meta property="og:locale" content="es_ES">
 <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
@@ -15,117 +20,167 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="./img/header.jpg">
 <script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  "name": "Noir Barber Club Pozuelo",
+  "image": "https://www.noirbarberclub.com/img/header.jpg",
+  "url": "https://www.noirbarberclub.com",
+  "telephone": "+34619778120",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Avenida de Europa, 18",
+    "postalCode": "28224",
+    "addressLocality": "Pozuelo de Alarcón",
+    "addressRegion": "Madrid",
+    "addressCountry": "ES"
+  },
+  "sameAs": ["https://www.instagram.com/noirbarberclub"]
+}
+</script>
 <style>
-  /* Gotham: Nunito Sans is the closest freely available match to Gotham's geometric humanist structure */
-  /* For production, replace with licensed Gotham via @font-face */
-</style>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* Gotham: Nunito Sans es la alternativa libre más cercana. Para producción, sustituir por Gotham con licencia vía @font-face */
 
-  html { overflow-x: hidden; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --noir: #1a1719;
     --noir-deep: #0e0d0f;
     --noir-brand: #332f33;
-    --gris-noir: #7f777a;
+    --gris-noir: #8a8285;
     --gris-claro: #beb2bd;
     --gris-light: #d4cdd3;
     --cream: #f5f0f4;
     --gold: #c9a96e;
     --gold-light: #e8d5b0;
+    --gold-dim: rgba(201,169,110,0.35);
     --white: #ffffff;
-    --border-thin: 1px solid rgba(191,178,189,0.25);
-    --border-med: 1px solid rgba(191,178,189,0.45);
-    --border-accent: 1px solid var(--gold);
-    --font-display: 'Playfair Display', serif;
+    --line: rgba(191,178,189,0.14);
+    --line-strong: rgba(191,178,189,0.28);
+    --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'Nunito Sans', 'Gotham', 'Century Gothic', sans-serif;
-    --font-ui: 'Nunito Sans', 'Gotham', 'Century Gothic', sans-serif;
-    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --gutter: clamp(20px, 5vw, 56px);
+    --section: clamp(96px, 12vw, 168px);
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 90px; }
 
   body {
     background: var(--noir-deep);
     color: var(--gris-light);
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.75;
     overflow-x: hidden;
-    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* ─── SCROLLBAR ─── */
-  ::-webkit-scrollbar { width: 3px; }
-  ::-webkit-scrollbar-track { background: var(--noir-deep); }
-  ::-webkit-scrollbar-thumb { background: var(--gris-noir); }
-
-  /* ─── CURSOR ─── */
-  * { cursor: none !important; }
-  #cursor {
-    position: fixed;
-    width: 8px; height: 8px;
-    background: var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, opacity 0.3s;
-  }
-  #cursor-ring {
-    position: fixed;
-    width: 30px; height: 30px;
-    border: 1px solid rgba(201,169,110,0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: all 0.15s ease;
-  }
-
-  /* ─── UTILITY ─── */
-  .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-  .section-label {
-    font-family: var(--font-ui);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gris-noir);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .section-label::before {
+  /* Grano de película sutil sobre toda la página */
+  body::after {
     content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--gold);
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 90;
+    opacity: 0.055;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
+
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  ::selection { background: var(--gold); color: var(--noir-deep); }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--noir-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--noir-brand); }
+
+  :focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+
+  /* ─── CURSOR (solo ratón) ─── */
+  #cursor, #cursor-ring { display: none; }
+  @media (hover: hover) and (pointer: fine) {
+    * { cursor: none !important; }
+    #cursor {
+      display: block;
+      position: fixed;
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s;
+    }
+    #cursor-ring {
+      display: block;
+      position: fixed;
+      width: 34px; height: 34px;
+      border: 1px solid rgba(201,169,110,0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s var(--ease), height 0.3s var(--ease), border-color 0.3s;
+    }
+  }
+
+  /* ─── BASE ─── */
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+
+  .kicker {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(40px, 5.4vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    color: var(--white);
+    text-wrap: balance;
+  }
+
+  .lede {
+    font-size: 17px;
+    color: var(--gris-claro);
+    max-width: 52ch;
+  }
+
+  .brace { color: var(--gold); font-weight: 400; }
 
   /* ─── BUTTONS ─── */
   .btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 28px;
-    font-family: var(--font-ui);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 3px;
+    justify-content: center;
+    gap: 14px;
+    padding: 17px 30px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     text-decoration: none;
-    border: 1px solid var(--gris-noir);
     color: var(--white);
+    border: 1px solid var(--line-strong);
     background: transparent;
     position: relative;
     overflow: hidden;
-    transition: var(--transition);
+    isolation: isolate;
+    transition: color 0.45s var(--ease), border-color 0.45s var(--ease);
   }
   .btn::before {
     content: '';
@@ -133,1180 +188,710 @@
     inset: 0;
     background: var(--gold);
     transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 0;
+    transform-origin: right;
+    transition: transform 0.55s var(--ease);
+    z-index: -1;
   }
-  .btn:hover::before { transform: scaleX(1); }
-  .btn:hover { border-color: var(--gold); color: var(--noir-deep); }
-  .btn span { position: relative; z-index: 1; }
-  .btn svg { position: relative; z-index: 1; transition: transform 0.3s; }
+  .btn:hover::before { transform: scaleX(1); transform-origin: left; }
+  .btn:hover { color: var(--noir-deep); border-color: var(--gold); }
+  .btn svg { width: 16px; height: 16px; flex-shrink: 0; transition: transform 0.4s var(--ease); }
   .btn:hover svg { transform: translateX(4px); }
-  .btn-primary { border-color: var(--gold); }
-  .btn-primary::before { background: var(--gold); }
-  .btn-ghost {
-    border-color: rgba(191,178,189,0.3);
-    color: var(--gris-claro);
-  }
+
+  .btn-primary { background: var(--gold); border-color: var(--gold); color: var(--noir-deep); }
+  .btn-primary::before { background: var(--gold-light); }
 
   /* ─── NAV ─── */
-  nav {
+  #navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 0;
-    transition: var(--transition);
+    transition: background 0.5s var(--ease), border-color 0.5s var(--ease), padding 0.5s var(--ease);
+    border-bottom: 1px solid transparent;
   }
-  nav.scrolled {
-    background: rgba(14,13,15,0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: var(--border-thin);
+  #navbar.scrolled {
+    background: rgba(14,13,15,0.88);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border-bottom-color: var(--line);
   }
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 40px;
-    max-width: 1280px;
+    gap: 32px;
+    max-width: 1240px;
     margin: 0 auto;
+    padding: 22px var(--gutter);
+    transition: padding 0.5s var(--ease);
   }
-  .nav-logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-  .nav-logo svg { height: 60px; width: auto; }
+  #navbar.scrolled .nav-inner { padding-top: 12px; padding-bottom: 12px; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo svg { height: 58px; width: auto; transition: height 0.5s var(--ease); }
+  #navbar.scrolled .nav-logo svg { height: 46px; }
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 36px;
     list-style: none;
+    margin-left: auto;
   }
   .nav-links a {
-    font-family: var(--font-ui);
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 400;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
     color: var(--gris-claro);
     text-decoration: none;
-    transition: color 0.3s;
     position: relative;
+    padding: 6px 0;
+    transition: color 0.3s;
   }
   .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
+    left: 0; bottom: 0;
+    width: 100%; height: 1px;
     background: var(--gold);
-    transition: width 0.3s;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s var(--ease);
   }
   .nav-links a:hover { color: var(--white); }
-  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
   .nav-cta {
-    font-family: var(--font-ui);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    text-decoration: none;
     color: var(--noir-deep);
     background: var(--gold);
     border: 1px solid var(--gold);
-    padding: 10px 22px;
-    text-decoration: none;
-    transition: var(--transition);
+    padding: 12px 22px;
+    white-space: nowrap;
+    transition: background 0.35s, color 0.35s;
   }
-  .nav-cta:hover {
+  .nav-cta:hover { background: transparent; color: var(--gold); }
+
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
     background: transparent;
-    color: var(--gold);
+    border: 1px solid var(--line-strong);
+    color: var(--white);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
   }
+  .nav-toggle span {
+    display: block;
+    width: 18px; height: 1px;
+    background: currentColor;
+    transition: transform 0.4s var(--ease);
+  }
+  body.menu-open .nav-toggle span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  body.menu-open .nav-toggle span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+
+  /* Menú móvil */
+  #mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: var(--noir-deep);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 110px var(--gutter) 48px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.45s var(--ease), visibility 0.45s;
+  }
+  body.menu-open { overflow: hidden; }
+  body.menu-open #mobile-menu { opacity: 1; visibility: visible; }
+  #mobile-menu ul { list-style: none; }
+  #mobile-menu li { border-bottom: 1px solid var(--line); }
+  #mobile-menu li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 16px 0;
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--white);
+    text-decoration: none;
+  }
+  #mobile-menu li a span { font-size: 16px; color: var(--gold); font-style: italic; }
+  .mobile-menu-foot { margin-top: 40px; display: grid; gap: 12px; }
+  .mobile-menu-foot .btn { width: 100%; }
+  .mobile-menu-foot p { font-size: 14px; color: var(--gris-noir); margin-top: 12px; }
 
   /* ─── HERO ─── */
   #hero {
     min-height: 100vh;
+    min-height: 100svh;
     position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     overflow: hidden;
+    background: var(--noir-deep);
   }
   .hero-bg {
     position: absolute;
-    inset: 0;
+    inset: -4% 0 0 0;
     background-image: url('./img/header.jpg');
     background-size: cover;
-    background-position: center 30%;
-    filter: brightness(0.45);
+    background-position: 62% 30%;
+    filter: brightness(0.62) saturate(0.85) contrast(1.05);
+    transform: scale(1.08);
+    animation: heroZoom 2.4s var(--ease) forwards;
+    will-change: transform;
   }
-  .hero-overlay {
+  .hero-shade {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(14,13,15,0.85) 0%, rgba(14,13,15,0.25) 50%, rgba(14,13,15,0.05) 100%);
+    background:
+      linear-gradient(90deg, rgba(14,13,15,0.94) 0%, rgba(14,13,15,0.72) 38%, rgba(14,13,15,0.15) 75%, rgba(14,13,15,0.3) 100%),
+      linear-gradient(0deg, rgba(14,13,15,1) 0%, rgba(14,13,15,0) 32%);
   }
-  .hero-content {
+  .hero-inner {
     position: relative;
     z-index: 1;
-    padding: 0 40px;
-    max-width: 1280px;
-    margin: 0 auto;
     width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 150px var(--gutter) 170px;
   }
-  .hero-tag {
-    font-family: var(--font-ui);
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    text-transform: uppercase;
+  .hero-kicker {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(16px, 1.5vw, 20px);
     color: var(--gold);
-    margin-bottom: 28px;
+    margin-bottom: 26px;
+    opacity: 0;
+    animation: fadeIn 1s 0.2s var(--ease) forwards;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(46px, 8.2vw, 132px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    color: var(--white);
     display: flex;
     align-items: center;
-    gap: 16px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s 0.3s forwards;
+    gap: 0.14em;
+    margin-bottom: 44px;
+    margin-left: -0.04em;
   }
-  .hero-tag::before {
-    content: '';
-    display: block;
-    width: 48px;
-    height: 1px;
-    background: var(--gold);
-  }
-  .hero-headline {
-    font-family: var(--font-display);
-    font-size: clamp(30px, 5.5vw, 78px);
+  .hero-title .brace {
+    font-size: 1.9em;
+    line-height: 1;
     font-weight: 400;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 40px;
+    transform: translateY(-0.05em);
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.9s 0.5s forwards;
-    text-wrap: balance;
   }
-  .hero-headline .br-mobile { display: none; }
-  .hero-headline em {
-    font-style: italic;
+  .hero-title .brace-l { animation: braceL 1.3s 0.35s var(--ease) forwards; }
+  .hero-title .brace-r { animation: braceR 1.3s 0.35s var(--ease) forwards; }
+  .hero-words { display: block; opacity: 0; animation: fadeUp 1.1s 0.6s var(--ease) forwards; }
+  .hero-words em { font-style: italic; color: var(--gris-claro); }
+  .hero-lede {
+    max-width: 470px;
+    font-size: 17px;
+    line-height: 1.85;
     color: var(--gris-claro);
-    display: block;
-  }
-  .hero-bracket {
-    color: var(--gold);
-    font-weight: 300;
-  }
-  .hero-body {
-    max-width: 460px;
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--gris-claro);
-    line-height: 1.9;
-    margin-bottom: 48px;
+    margin-bottom: 44px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s 0.7s forwards;
-    letter-spacing: 0.01em;
+    animation: fadeUp 1s 0.85s var(--ease) forwards;
   }
   .hero-actions {
     display: flex;
-    align-items: center;
-    gap: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
     opacity: 0;
-    animation: fadeUp 0.8s 0.9s forwards;
+    animation: fadeUp 1s 1s var(--ease) forwards;
   }
-  .hero-scroll {
+
+  .hero-bar {
     position: absolute;
-    bottom: 40px;
-    right: 40px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-ui);
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gris-noir);
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    border-top: 1px solid var(--line);
+    background: rgba(14,13,15,0.45);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     opacity: 0;
-    animation: fadeIn 1s 1.2s forwards;
+    animation: fadeIn 1s 1.3s var(--ease) forwards;
   }
-  .hero-scroll::after {
+  .hero-bar-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+  .hb-item {
+    padding: 24px 28px;
+    border-left: 1px solid var(--line);
+    text-decoration: none;
+    display: block;
+    transition: background 0.35s;
+  }
+  .hb-item:first-child { border-left: 0; padding-left: 0; }
+  a.hb-item:hover { background: rgba(201,169,110,0.06); }
+  .hb-label { display: block; font-size: 13px; color: var(--gris-noir); margin-bottom: 2px; }
+  .hb-value { display: block; font-family: var(--font-display); font-size: 19px; color: var(--white); }
+
+  @keyframes heroZoom { to { transform: scale(1); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { to { opacity: 1; } }
+  @keyframes braceL { from { opacity: 0; transform: translate(0.35em, -0.05em); } to { opacity: 1; transform: translate(0, -0.05em); } }
+  @keyframes braceR { from { opacity: 0; transform: translate(-0.35em, -0.05em); } to { opacity: 1; transform: translate(0, -0.05em); } }
+
+  /* ─── ABOUT ─── */
+  #about { padding: var(--section) 0; position: relative; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: clamp(48px, 8vw, 128px);
+    align-items: center;
+  }
+  .about-figure { position: relative; margin: 0; }
+  .about-figure::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--gold-dim);
+    transform: translate(22px, 22px);
+    pointer-events: none;
+  }
+  .about-figure img {
+    position: relative;
+    background: var(--noir);
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    filter: saturate(0.85);
+  }
+  .about-figure figcaption {
+    margin-top: 42px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gris-noir);
+  }
+  .about-text .h2 { margin-bottom: 36px; }
+  .about-text p { color: var(--gris-claro); margin-bottom: 22px; max-width: 54ch; }
+  .about-text p.about-first {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 1.8vw, 24px);
+    line-height: 1.55;
+    color: var(--gris-light);
+  }
+  .about-text .btn { margin-top: 18px; }
+
+  .values {
+    margin-top: clamp(80px, 10vw, 140px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .value { padding: 36px 32px 0 0; }
+  .value + .value { padding-left: 32px; border-left: 1px solid var(--line); }
+  .value h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .value h3::before {
     content: '';
     display: block;
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-    margin-top: 8px;
+    width: 28px; height: 1px;
+    background: var(--gold);
+    margin-bottom: 22px;
   }
+  .value p { font-size: 15px; color: var(--gris-claro); line-height: 1.7; }
 
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
+  /* ─── SERVICES ─── */
+  #services { padding: var(--section) 0; background: var(--noir); position: relative; }
+  .services-head {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: clamp(56px, 7vw, 96px);
   }
-  @keyframes fadeIn {
-    to { opacity: 1; }
+  .services-head .lede { justify-self: end; }
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(48px, 7vw, 112px);
   }
-
-  /* ─── BOOKING BANNER ─── */
-  #booking-banner {
-    background: var(--noir-brand);
-    border-top: var(--border-thin);
-    border-bottom: var(--border-thin);
-    padding: 24px 40px;
+  .menu-item {
+    padding: 30px 0 28px;
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.4s var(--ease);
   }
-  .booking-inner {
-    max-width: 1280px;
-    margin: 0 auto;
+  .menu-item:nth-child(-n+2) { border-top: 1px solid var(--line); }
+  .menu-row { display: flex; align-items: baseline; gap: 14px; }
+  .menu-row h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(22px, 2vw, 27px);
+    color: var(--white);
+    line-height: 1.2;
+    transition: color 0.35s;
+  }
+  .menu-row .leader {
+    flex: 1;
+    min-width: 24px;
+    border-bottom: 1px dotted rgba(201,169,110,0.4);
+    transform: translateY(-6px);
+  }
+  .menu-row .price {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.2vw, 30px);
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .menu-item p { margin-top: 8px; font-size: 15px; color: var(--gris-claro); max-width: 46ch; }
+  .menu-note {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gris-noir);
+  }
+  .menu-item:hover .menu-row h3 { color: var(--gold-light); }
+  .menu-item.is-featured .menu-note { color: var(--gold); }
+  .services-foot {
+    margin-top: clamp(48px, 6vw, 80px);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+    flex-wrap: wrap;
   }
-  .booking-left {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .booking-icon {
-    width: 48px;
-    height: 48px;
-    border: 1px solid rgba(201,169,110,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .booking-text-label {
-    font-family: var(--font-ui);
-    font-size: 9px;
-    font-weight: 400;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gris-noir);
-    margin-bottom: 4px;
-  }
-  .booking-text-title {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 1px;
-  }
-  .booking-sub {
-    font-family: var(--font-body);
-    font-size: 15px;
-    color: var(--gris-claro);
-    font-style: italic;
-  }
-
-  /* ─── ABOUT ─── */
-  #about {
-    padding: 140px 0;
-    position: relative;
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .about-img-wrap {
-    position: relative;
-  }
-  .about-img-main {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
-  .about-img-accent {
-    position: absolute;
-    bottom: -40px;
-    right: -40px;
-    width: 55%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    border: 4px solid var(--noir-deep);
-  }
-  .about-img-counter {
-    position: absolute;
-    top: 40px;
-    left: -24px;
-    background: var(--gold);
-    padding: 20px 24px;
-    text-align: center;
-  }
-  .about-img-counter .num {
-    font-family: var(--font-display);
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--noir-deep);
-    line-height: 1;
-    display: block;
-  }
-  .about-img-counter .lbl {
-    font-family: var(--font-ui);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--noir-brand);
-    display: block;
-    margin-top: 4px;
-  }
-  .about-text h2 {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 4vw, 56px);
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.05;
-    margin-bottom: 32px;
-  }
-  .about-text h2 em { font-style: italic; color: var(--gris-claro); }
-  .about-text p {
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--gris-claro);
-    line-height: 1.85;
-    margin-bottom: 24px;
-  }
-  .about-values {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: rgba(191,178,189,0.15);
-    border: 1px solid rgba(191,178,189,0.15);
-    margin: 40px 0;
-  }
-  .about-value {
-    background: var(--noir-deep);
-    padding: 20px 24px;
-    border: none;
-  }
-  .about-value-icon {
-    font-size: 11px;
-    font-family: var(--font-ui);
-    letter-spacing: 2px;
-    color: var(--gold);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .about-value-icon::before {
-    content: '';
-    display: block;
-    width: 16px;
-    height: 1px;
-    background: var(--gold);
-  }
-  .about-value p {
-    font-size: 15px;
-    color: var(--gris-claro);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  /* ─── SERVICES ─── */
-  #services {
-    padding: 140px 0;
-    background: var(--noir-brand);
-    position: relative;
-    overflow: hidden;
-  }
-  #services::before {
-    content: 'NOIR';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-display);
-    font-size: 280px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.02);
-    white-space: nowrap;
-    pointer-events: none;
-    letter-spacing: 20px;
-  }
-  .services-header {
-    text-align: center;
-    margin-bottom: 80px;
-    position: relative;
-    z-index: 1;
-  }
-  .services-header h2 {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  .services-header p {
-    font-family: var(--font-body);
-    font-size: 15px;
-    color: var(--gris-claro);
-    font-weight: 300;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: rgba(191,178,189,0.12);
-    border: 1px solid rgba(191,178,189,0.12);
-    position: relative;
-    z-index: 1;
-  }
-  .service-card {
-    background: var(--noir-brand);
-    padding: 48px 32px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-  }
-  .service-card:hover { background: rgba(51,47,51,0.5); }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(201,169,110,0.3);
-  }
-  .service-icon svg {
-    width: 28px;
-    height: 28px;
-    stroke: var(--gold);
-    fill: none;
-    stroke-width: 1.2;
-  }
-  .service-card h3 {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-  }
-  .service-card p {
-    font-family: var(--font-body);
-    font-size: 15px;
-    color: var(--gris-noir);
-    line-height: 1.7;
-    font-style: italic;
-  }
-  .service-card .price {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 300;
-    color: var(--gold);
-    margin-top: 20px;
-    display: block;
-  }
-  .service-card .price-from {
-    font-family: var(--font-ui);
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gris-noir);
-    margin-top: 4px;
-    display: block;
-  }
+  .services-foot p { font-size: 14px; color: var(--gris-noir); }
 
   /* ─── EXPERIENCE ─── */
-  #experience {
-    padding: 140px 0;
-    position: relative;
-    background: var(--noir-brand);
-  }
+  #experience { background: var(--noir-deep); }
   .exp-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    min-height: 680px;
+    min-height: 760px;
   }
-  .exp-img {
-    position: relative;
-    overflow: hidden;
-  }
+  .exp-img { position: relative; overflow: hidden; }
   .exp-img img {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease;
+    object-position: 68% center;
+    filter: brightness(0.8) saturate(0.85);
+    transition: transform 1.4s var(--ease);
   }
   .exp-img:hover img { transform: scale(1.04); }
-  .exp-img-overlay {
+  .exp-img::after {
+    content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent 60%, var(--noir-deep));
+    background: linear-gradient(90deg, rgba(14,13,15,0) 55%, rgba(14,13,15,1) 100%);
   }
   .exp-content {
-    background: var(--noir-brand);
-    padding: 80px 72px;
+    padding: var(--section) var(--gutter) var(--section) clamp(40px, 6vw, 96px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: var(--border-thin);
-    border-left: none;
+    max-width: 680px;
   }
-  .exp-content h2 {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 3.5vw, 52px);
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 32px;
-  }
-  .exp-content h2 em { font-style: italic; color: var(--gris-claro); }
-  .exp-content p {
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--gris-claro);
-    line-height: 1.85;
-    margin-bottom: 20px;
-  }
-  .exp-list {
-    list-style: none;
-    margin: 32px 0 48px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .exp-list li {
-    font-family: var(--font-ui);
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gris-claro);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .exp-list li::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  /* ─── INSTAGRAM ─── */
-  #instagram {
-    padding: 120px 0;
-    background: var(--noir-deep);
-    text-align: center;
-  }
-  .insta-handle {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 5vw, 64px);
-    font-weight: 400;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .insta-handle a { color: inherit; text-decoration: none; }
-  .insta-handle a:hover { color: var(--gold); transition: color 0.3s; }
-  .insta-grid {
+  .exp-content .h2 { margin-bottom: 22px; }
+  .ritual { list-style: none; margin: 44px 0 44px; counter-reset: ritual; }
+  .ritual li {
+    counter-increment: ritual;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
-    margin-top: 56px;
+    grid-template-columns: 64px 1fr;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
   }
-  .insta-item {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1;
-  }
-  .insta-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-    filter: grayscale(20%);
-  }
-  .insta-item:hover img {
-    transform: scale(1.06);
-    filter: grayscale(0%);
-  }
-  .insta-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(14,13,15,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-  .insta-item:hover .insta-overlay { opacity: 1; }
-  .insta-overlay svg {
-    width: 32px;
-    height: 32px;
-    stroke: var(--white);
-    fill: none;
-    stroke-width: 1.5;
-  }
-  .insta-more {
-    margin-top: 48px;
-  }
-
-  /* ─── LOCATIONS ─── */
-  #locations {
-    padding: 140px 0;
-    background: var(--noir-brand);
-  }
-  .locations-header {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-  .locations-header h2 {
+  .ritual li:last-child { border-bottom: 1px solid var(--line); }
+  .ritual li::before {
+    content: counter(ritual, upper-roman);
     font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  .locations-header p {
-    font-family: var(--font-body);
-    font-size: 18px;
-    color: var(--gris-claro);
     font-style: italic;
+    font-size: 22px;
+    color: var(--gold);
+    line-height: 1.4;
   }
-  .locations-grid {
+  .ritual h3 { font-family: var(--font-display); font-weight: 400; font-size: 22px; color: var(--white); }
+  .ritual p { font-size: 15px; color: var(--gris-claro); }
+  .exp-prices { display: flex; gap: 48px; margin-bottom: 40px; flex-wrap: wrap; }
+  .exp-price strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .exp-price span { display: block; margin-top: 8px; font-size: 14px; color: var(--gris-claro); }
+
+  /* ─── GALLERY ─── */
+  #instagram { padding: var(--section) 0; }
+  .gallery-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+  .gallery-head .h2 a { text-decoration: none; transition: color 0.35s; }
+  .gallery-head .h2 a:hover { color: var(--gold); }
+  .gallery-head p { color: var(--gris-claro); margin-top: 14px; }
+  .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: rgba(191,178,189,0.12);
-    border: 1px solid rgba(191,178,189,0.12);
+    grid-template-columns: 1.45fr 1fr;
+    grid-template-rows: repeat(2, clamp(220px, 25vw, 360px));
+    gap: 10px;
   }
-  .location-card {
-    background: var(--noir-brand);
-    padding: 48px 40px;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
+  .g-item { position: relative; overflow: hidden; display: block; background: var(--noir); }
+  .g-item:first-child { grid-row: span 2; }
+  .g-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(25%) brightness(0.9);
+    transition: transform 1.1s var(--ease), filter 0.6s;
   }
-  .location-card::after {
+  .g-item:hover img { transform: scale(1.05); filter: grayscale(0%) brightness(1); }
+  .g-item::after {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-    transform-origin: left;
+    inset: 14px;
+    border: 1px solid rgba(201,169,110,0.5);
+    opacity: 0;
+    transform: scale(1.03);
+    transition: opacity 0.5s, transform 0.6s var(--ease);
   }
-  .location-card:hover::after { transform: scaleX(1); }
-  .loc-num {
-    font-family: var(--font-display);
-    font-size: 80px;
-    font-weight: 700;
-    color: rgba(201,169,110,0.08);
-    line-height: 1;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .location-card h3 {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-  }
-  .loc-district {
-    font-family: var(--font-ui);
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .loc-district::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 1px;
-    background: var(--gold);
-  }
-  .loc-img {
-    width: 100%;
-    aspect-ratio: 16/10;
-    object-fit: cover;
-    margin-bottom: 28px;
-    filter: grayscale(20%);
-    transition: filter 0.4s;
-  }
-  .location-card:hover .loc-img { filter: grayscale(0%); }
-  .loc-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 32px;
-  }
-  .loc-info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-family: var(--font-body);
-    font-size: 15px;
-    color: var(--gris-claro);
-    line-height: 1.5;
-  }
-  .loc-info-item svg {
-    width: 16px;
-    height: 16px;
-    stroke: var(--gold);
-    fill: none;
-    stroke-width: 1.5;
-    flex-shrink: 0;
-    margin-top: 3px;
-  }
-  .loc-info-item a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .loc-info-item a:hover { color: var(--gold); }
-  .loc-actions {
+  .g-item:hover::after { opacity: 1; transform: scale(1); }
+
+  /* ─── LOCATION ─── */
+  #locations { padding: var(--section) 0; background: var(--noir); }
+  .loc-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-  .loc-action-btn {
-    display: inline-flex;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(48px, 7vw, 112px);
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 14px;
-    font-family: var(--font-ui);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--gris-claro);
-    border: 1px solid rgba(191,178,189,0.2);
-    transition: var(--transition);
-    background: transparent;
-    cursor: pointer;
   }
-  .loc-action-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(201,169,110,0.04);
+  .loc-figure { position: relative; margin: 0; overflow: hidden; }
+  .loc-figure img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    filter: saturate(0.9);
+    transition: transform 1.2s var(--ease);
   }
-  .loc-action-btn svg {
-    width: 14px;
-    height: 14px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 1.6;
-    flex-shrink: 0;
+  .loc-figure:hover img { transform: scale(1.03); }
+  .loc-figure figcaption {
+    position: absolute;
+    left: 0; bottom: 0;
+    background: var(--gold);
+    color: var(--noir-deep);
+    padding: 16px 22px;
+    font-family: var(--font-display);
+    font-size: 17px;
   }
+  .loc-content .h2 { margin-bottom: 20px; }
+  .loc-content .lede { margin-bottom: 40px; }
+  .loc-details { border-top: 1px solid var(--line); margin-bottom: 36px; }
+  .loc-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .loc-row dt { font-size: 14px; color: var(--gris-noir); }
+  .loc-row dd { font-family: var(--font-display); font-size: 20px; color: var(--white); line-height: 1.4; }
+  .loc-row dd a { text-decoration: none; transition: color 0.3s; }
+  .loc-row dd a:hover { color: var(--gold); }
+  .loc-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .loc-actions .btn { flex: 1 1 auto; }
 
   /* ─── CONTACT ─── */
-  #contact {
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 700px;
-  }
-  .contact-left {
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-left img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.5);
-  }
-  .contact-left-content {
-    position: absolute;
-    inset: 0;
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  .contact-left-content h2 {
+  #contact { padding: var(--section) 0; text-align: center; position: relative; overflow: hidden; }
+  .contact-title {
     font-family: var(--font-display);
-    font-size: clamp(36px, 4vw, 56px);
     font-weight: 400;
+    font-size: clamp(46px, 7.5vw, 112px);
+    line-height: 1;
+    letter-spacing: -0.02em;
     color: var(--white);
-    line-height: 1.05;
-    margin-bottom: 24px;
-  }
-  .contact-left-content h2 em { font-style: italic; color: var(--gris-claro); }
-  .contact-left-content p {
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--gris-claro);
-    max-width: 360px;
-    margin-bottom: 48px;
-    letter-spacing: 0.02em;
-  }
-  .contact-right {
-    background: var(--noir-brand);
-    padding: 80px 72px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-left: var(--border-thin);
-  }
-  .contact-right h3 {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .contact-right .subtitle {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--gris-noir);
-    letter-spacing: 0.04em;
-    margin-bottom: 48px;
-  }
-  .contact-channels {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 48px;
-  }
-  .contact-channel {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 20px;
-    padding: 20px 24px;
-    border: 1px solid rgba(191,178,189,0.15);
+    gap: 0.14em;
+    margin-bottom: 28px;
+  }
+  .contact-title .brace { font-size: 1.5em; line-height: 1; transform: translateY(-0.05em); }
+  #contact .lede { margin: 0 auto 64px; }
+  .channels {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line);
+    text-align: left;
+  }
+  .channel {
+    padding: 34px 30px;
     text-decoration: none;
-    color: var(--gris-claro);
-    transition: var(--transition);
     position: relative;
-    overflow: hidden;
-  }
-  .contact-channel::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(201,169,110,0.05);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .contact-channel:hover::before { transform: scaleX(1); }
-  .contact-channel:hover { border-color: rgba(201,169,110,0.4); }
-  .contact-channel svg {
-    width: 20px; height: 20px;
-    stroke: var(--gold);
-    fill: none;
-    stroke-width: 1.5;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .contact-channel-label {
-    font-family: var(--font-ui);
-    font-size: 9px;
-    font-weight: 400;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gris-noir);
     display: block;
-    margin-bottom: 2px;
-    position: relative;
+    transition: background 0.45s var(--ease);
   }
-  .contact-channel-value {
-    font-family: var(--font-body);
-    font-size: 15px;
-    color: var(--white);
-    position: relative;
-  }
+  .channel + .channel { border-left: 1px solid var(--line); }
+  .channel:hover { background: rgba(201,169,110,0.06); }
+  .channel svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.4; margin-bottom: 26px; }
+  .channel-label { display: block; font-size: 14px; color: var(--gris-noir); }
+  .channel-value { display: block; font-family: var(--font-display); font-size: 21px; color: var(--white); margin-top: 2px; transition: color 0.3s; }
+  .channel:hover .channel-value { color: var(--gold-light); }
+  .contact-note { margin-top: 32px; font-size: 14px; color: var(--gris-noir); }
 
   /* ─── FOOTER ─── */
-  footer {
-    padding: 60px 40px 40px;
-    background: var(--noir-deep);
-    border-top: var(--border-thin);
-  }
+  footer { padding: 72px 0 36px; border-top: 1px solid var(--line); background: var(--noir-deep); }
   .footer-inner {
-    max-width: 1280px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: 40px;
   }
-  .footer-copy {
-    font-family: var(--font-ui);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gris-noir);
-  }
-  .footer-logo {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .footer-social {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    justify-content: flex-end;
-  }
+  .footer-copy { font-size: 13px; color: var(--gris-noir); line-height: 1.7; }
+  .footer-logo { display: flex; justify-content: center; }
+  .footer-logo svg { height: 84px; width: auto; opacity: 0.5; }
+  .footer-social { display: flex; gap: 12px; justify-content: flex-end; }
   .footer-social a {
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(191,178,189,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    text-decoration: none;
+    width: 42px; height: 42px;
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.3s;
   }
   .footer-social a:hover { border-color: var(--gold); }
-  .footer-social svg {
-    width: 16px; height: 16px;
-    stroke: var(--gris-noir);
-    fill: none;
-    stroke-width: 1.5;
-    transition: stroke 0.3s;
-  }
+  .footer-social svg { width: 17px; height: 17px; stroke: var(--gris-claro); fill: none; stroke-width: 1.5; transition: stroke 0.3s; }
   .footer-social a:hover svg { stroke: var(--gold); }
   .footer-bottom {
-    max-width: 1280px;
-    margin: 40px auto 0;
+    margin-top: 48px;
     padding-top: 24px;
-    border-top: var(--border-thin);
+    border-top: 1px solid var(--line);
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    font-family: var(--font-ui);
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(127,119,122,0.5);
-  }
-  .footer-nav {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-  }
-  .footer-nav a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .footer-nav a:hover { color: var(--gris-noir); }
-  .footer-legal {
-    max-width: 1280px;
-    margin: 20px auto 0;
-    padding-top: 16px;
-    border-top: 1px solid rgba(191,178,189,0.08);
-    text-align: center;
-  }
-  .footer-legal-nav {
-    list-style: none;
-    display: flex;
+    align-items: center;
+    gap: 20px;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 24px;
-    font-family: var(--font-ui);
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: 13px;
+    color: var(--gris-noir);
   }
-  .footer-legal-nav a {
-    color: rgba(127,119,122,0.55);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .footer-legal-nav a:hover { color: var(--gold); }
+  .footer-nav, .footer-legal-nav { display: flex; flex-wrap: wrap; gap: 10px 24px; list-style: none; }
+  .footer-nav a, .footer-legal-nav a { text-decoration: none; color: var(--gris-noir); transition: color 0.3s; }
+  .footer-nav a:hover, .footer-legal-nav a:hover { color: var(--gold); }
+  .footer-legal { margin-top: 20px; display: flex; justify-content: center; font-size: 12px; }
 
-  /* ─── SCROLL REVEAL ─── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal-left.visible { opacity: 1; transform: translateX(0); }
-  .reveal-right {
-    opacity: 0;
-    transform: translateX(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+  /* ─── REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: 0.12s; }
 
-  /* ─── MOBILE HAMBURGER (simple) ─── */
-  .nav-toggle { display: none; }
-
-  /* Desactivar cursor custom en dispositivos táctiles / sin hover */
-  @media (hover: none), (pointer: coarse) {
-    * { cursor: auto !important; }
-    a, button, .btn, .nav-cta { cursor: pointer !important; }
-    #cursor, #cursor-ring { display: none !important; }
-  }
-
-  /* En móvil/tablet, las animaciones reveal usan solo translateY para no desbordar horizontalmente */
-  @media (max-width: 1024px) {
-    .reveal-left, .reveal-right {
-      transform: translateY(40px);
-    }
-    .reveal-left.visible, .reveal-right.visible {
-      transform: translateY(0);
-    }
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1100px) {
+    .nav-links { gap: 26px; }
+    .channels { grid-template-columns: repeat(2, 1fr); }
+    .channel:nth-child(3) { border-left: 0; }
+    .channel:nth-child(n+3) { border-top: 1px solid var(--line); }
   }
 
   @media (max-width: 1024px) {
-    .nav-inner { padding: 20px 28px; }
     .nav-links { display: none; }
-    .about-grid { grid-template-columns: 1fr; gap: 60px; }
-    .about-img-accent { display: none; }
-    .about-img-main { aspect-ratio: 4/3; }
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .exp-grid { grid-template-columns: 1fr; }
-    .exp-img { min-height: 360px; }
-    .exp-content { padding: 60px 48px; border-left: var(--border-thin); border-top: none; }
-    .insta-grid { grid-template-columns: repeat(2, 1fr); }
-    .locations-grid { grid-template-columns: 1fr; }
-    .contact-split { grid-template-columns: 1fr; min-height: 0; }
-    .contact-left { min-height: 380px; }
-    .contact-left-content { padding: 60px 48px; }
-    .contact-right { padding: 60px 48px; border-left: none; border-top: var(--border-thin); }
-    .footer-inner { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+    .nav-toggle { display: inline-flex; }
+    .nav-inner { gap: 12px; }
+    .nav-cta { margin-left: auto; }
+    .about-grid, .loc-grid { grid-template-columns: 1fr; }
+    .about-figure { max-width: 560px; }
+    .values { grid-template-columns: 1fr 1fr; }
+    .value:nth-child(3) { padding-left: 0; border-left: 0; }
+    .value:nth-child(n+3) { padding-top: 40px; }
+    .services-head { grid-template-columns: 1fr; }
+    .services-head .lede { justify-self: start; }
+    .menu { grid-template-columns: 1fr; }
+    .menu-item:nth-child(2) { border-top: 0; }
+    .exp-grid { grid-template-columns: 1fr; min-height: 0; }
+    .exp-img { min-height: 420px; }
+    .exp-img::after { background: linear-gradient(0deg, rgba(14,13,15,1) 0%, rgba(14,13,15,0) 45%); }
+    .exp-content { max-width: none; padding: 64px var(--gutter) var(--section); }
+    .footer-inner { grid-template-columns: 1fr; text-align: center; }
     .footer-social { justify-content: center; }
-    #services::before { font-size: 180px; letter-spacing: 12px; }
-    #about, #services, #experience, #instagram, #locations { padding: 100px 0; }
+    .footer-bottom { justify-content: center; text-align: center; }
   }
 
-  @media (max-width: 640px) {
-    .container { padding: 0 20px; }
-    .nav-inner { padding: 16px 20px; }
-    .nav-logo svg { height: 44px; }
-    .nav-cta { padding: 8px 14px; font-size: 9px; letter-spacing: 2px; }
-    #hero { min-height: 92vh; }
-    .hero-content { padding: 0 20px; }
-    .hero-tag { font-size: 9px; letter-spacing: 3px; margin-bottom: 18px; }
-    .hero-tag::before { width: 32px; }
-    .hero-headline { font-size: 30px; line-height: 1.15; margin-bottom: 28px; }
-    .hero-headline .br-mobile { display: inline; }
-    .hero-body { font-size: 14px; line-height: 1.7; margin-bottom: 32px; }
-    .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .hero-scroll { right: 20px; bottom: 24px; font-size: 8px; letter-spacing: 2px; }
-    .hero-scroll::after { height: 40px; }
-    #booking-banner { padding: 24px 20px; }
-    .booking-inner { flex-direction: column; text-align: center; gap: 20px; }
-    .booking-left { flex-direction: column; gap: 14px; }
-    .booking-text-title { font-size: 20px; }
-    .booking-sub { font-size: 13px; }
-    #about, #services, #experience, #instagram, #locations { padding: 72px 0; }
-    .about-img-counter { left: 12px; top: 16px; padding: 14px 18px; }
-    .about-img-counter .num { font-size: 32px; }
-    .about-values { grid-template-columns: 1fr; gap: 20px; }
-    .services-header { margin-bottom: 48px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card { padding: 40px 24px; }
-    #services::before { font-size: 100px; letter-spacing: 8px; }
-    .exp-img { min-height: 280px; }
-    .exp-content { padding: 48px 24px; }
-    .exp-content h2 { margin-bottom: 24px; }
-    .exp-list { margin: 24px 0 32px; gap: 12px; }
-    .exp-list li { font-size: 10px; letter-spacing: 1.5px; gap: 12px; }
-    .insta-grid { gap: 2px; margin-top: 40px; }
-    .locations-header { margin-bottom: 56px; }
-    .location-card { padding: 36px 24px; }
-    .loc-num { font-size: 60px; }
-    .location-card h3 { font-size: 22px; letter-spacing: 1.5px; }
-    .loc-info-item { font-size: 14px; }
-    .loc-action-btn { font-size: 9px; letter-spacing: 1.5px; padding: 11px 8px; gap: 6px; }
-    .contact-left { min-height: 320px; }
-    .contact-left-content { padding: 48px 24px; }
-    .contact-right { padding: 56px 24px; }
-    .contact-channel { padding: 16px 18px; gap: 14px; }
-    .contact-channel-value { font-size: 14px; }
-    footer { padding: 48px 20px 32px; }
-    .footer-bottom {
-      flex-direction: column;
-      gap: 14px;
-      text-align: center;
-      font-size: 8px;
-      letter-spacing: 1.5px;
+  @media (max-width: 720px) {
+    body { font-size: 15px; }
+    .nav-inner { padding: 14px var(--gutter); }
+    .nav-logo svg, #navbar.scrolled .nav-logo svg { height: 42px; }
+    .nav-cta { padding: 10px 14px; font-size: 11px; letter-spacing: 0.12em; }
+    .hero-inner { padding: 120px var(--gutter) 48px; }
+    .hero-title { font-size: clamp(38px, 11vw, 56px); gap: 0.1em; margin-bottom: 30px; }
+    .hero-title .brace { font-size: 2.3em; }
+    .hero-lede { font-size: 15px; margin-bottom: 32px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-shade {
+      background:
+        linear-gradient(90deg, rgba(14,13,15,0.9) 0%, rgba(14,13,15,0.55) 100%),
+        linear-gradient(0deg, rgba(14,13,15,1) 0%, rgba(14,13,15,0) 40%);
     }
-    .footer-nav { flex-wrap: wrap; justify-content: center; gap: 14px 20px; }
+    .hero-bar { position: relative; }
+    .hero-bar-inner { grid-template-columns: 1fr 1fr; }
+    .hb-item { padding: 18px 16px; }
+    .hb-item:first-child { grid-column: 1 / -1; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .hb-item:nth-child(2) { border-left: 0; padding-left: 0; }
+    .hb-value { font-size: 17px; }
+    .values { grid-template-columns: 1fr; }
+    .value, .value + .value, .value:nth-child(n+3) { padding: 28px 0; border-left: 0; }
+    .value + .value { border-top: 1px solid var(--line); }
+    .value h3::before { margin-bottom: 16px; }
+    .menu-row h3 { font-size: 21px; }
+    .services-foot .btn { width: 100%; }
+    .exp-img { min-height: 320px; }
+    .exp-prices { gap: 32px; }
+    .exp-price strong { font-size: 44px; }
+    .exp-content .btn { width: 100%; }
+    .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: clamp(220px, 60vw, 340px) clamp(140px, 38vw, 220px); gap: 6px; }
+    .g-item:first-child { grid-row: auto; grid-column: 1 / -1; }
+    .gallery-head .btn { width: 100%; }
+    .loc-row { grid-template-columns: 1fr; gap: 2px; }
+    .loc-row dd { font-size: 19px; }
+    .loc-actions .btn { width: 100%; }
+    .contact-title .brace { font-size: 1.3em; }
+    .channels { grid-template-columns: 1fr; }
+    .channel, .channel + .channel, .channel:nth-child(n+3) { border-left: 0; }
+    .channel + .channel { border-top: 1px solid var(--line); }
+    .channel { padding: 24px 22px; display: grid; grid-template-columns: 40px 1fr; align-items: center; }
+    .channel svg { margin: 0; grid-row: span 2; }
+    #mobile-menu li a { font-size: 28px; }
+    .about-figure::before { transform: translate(12px, 12px); }
+    .about-figure figcaption { margin-top: 28px; }
   }
 
-  @media (max-width: 380px) {
-    .container { padding: 0 16px; }
-    .nav-inner { padding: 14px 16px; }
-    .nav-logo svg { height: 40px; }
-    .hero-content { padding: 0 16px; }
-    .hero-headline { font-size: 26px; margin-bottom: 24px; }
-    .hero-body { font-size: 13px; margin-bottom: 28px; }
-    .about-img-counter {
-      left: 8px;
-      top: 12px;
-      padding: 12px 14px;
-    }
-    .about-img-counter .num { font-size: 26px; }
-    .about-img-counter .lbl { font-size: 8px; letter-spacing: 1.5px; }
-    .insta-grid { grid-template-columns: 1fr; }
-    .footer-nav { gap: 10px 16px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0s !important; transition-duration: 0.01ms !important; }
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; }
   }
 
   /* ─── COOKIE BANNER ─── */
   .cookie-banner {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
+    bottom: 20px; left: 20px; right: 20px;
     max-width: 880px;
     margin: 0 auto;
     background: var(--noir-brand);
@@ -1314,97 +899,44 @@
     padding: 20px 24px;
     z-index: 9000;
     box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-    animation: cookieSlideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: cookieSlideUp 0.4s var(--ease);
   }
-  @keyframes cookieSlideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes cookieSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .cookie-banner[hidden] { display: none; }
-  .cookie-banner-inner {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .cookie-banner p {
-    flex: 1;
-    font-family: var(--font-body);
-    font-size: 13px;
-    line-height: 1.65;
-    color: var(--gris-claro);
-    margin: 0;
-  }
-  .cookie-banner a {
-    color: var(--gold);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(201,169,110,0.35);
-    transition: border-color 0.3s;
-  }
+  .cookie-banner-inner { display: flex; align-items: center; gap: 24px; }
+  .cookie-banner p { flex: 1; font-size: 13px; line-height: 1.65; color: var(--gris-claro); margin: 0; }
+  .cookie-banner a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.35); }
   .cookie-banner a:hover { border-bottom-color: var(--gold); }
-  .cookie-banner-actions {
-    display: flex;
-    gap: 10px;
-    flex-shrink: 0;
-  }
+  .cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
   .cookie-btn {
-    font-family: var(--font-ui);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 3px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    padding: 10px 18px;
+    padding: 11px 18px;
     border: 1px solid;
     cursor: pointer;
-    transition: var(--transition);
     background: transparent;
+    transition: all 0.35s var(--ease);
   }
-  .cookie-btn-secondary {
-    border-color: rgba(191,178,189,0.3);
-    color: var(--gris-claro);
-  }
-  .cookie-btn-secondary:hover {
-    border-color: var(--gris-claro);
-    color: var(--white);
-  }
-  .cookie-btn-primary {
-    border-color: var(--gold);
-    background: var(--gold);
-    color: var(--noir-deep);
-  }
-  .cookie-btn-primary:hover {
-    background: transparent;
-    color: var(--gold);
-  }
+  .cookie-btn-secondary { border-color: rgba(191,178,189,0.3); color: var(--gris-claro); }
+  .cookie-btn-secondary:hover { border-color: var(--gris-claro); color: var(--white); }
+  .cookie-btn-primary { border-color: var(--gold); background: var(--gold); color: var(--noir-deep); }
+  .cookie-btn-primary:hover { background: transparent; color: var(--gold); }
   @media (max-width: 640px) {
-    .cookie-banner {
-      bottom: 14px;
-      left: 12px;
-      right: 12px;
-      padding: 16px 18px;
-    }
-    .cookie-banner-inner {
-      flex-direction: column;
-      gap: 14px;
-      align-items: stretch;
-    }
+    .cookie-banner { bottom: 14px; left: 12px; right: 12px; padding: 16px 18px; }
+    .cookie-banner-inner { flex-direction: column; gap: 14px; align-items: stretch; }
     .cookie-banner p { font-size: 12px; }
     .cookie-banner-actions { gap: 8px; }
-    .cookie-btn { flex: 1; padding: 12px 14px; font-size: 9px; letter-spacing: 2px; }
+    .cookie-btn { flex: 1; padding: 12px 14px; font-size: 10px; letter-spacing: 0.1em; }
   }
 
   /* ─── BOOKING MODAL ─── */
   body.modal-open { overflow: hidden; }
-  /* Mientras el modal está abierto, restauramos el cursor del sistema
-     (el custom #cursor tiene z-index inferior al modal y se "pierde") */
-  body.modal-open,
-  body.modal-open * { cursor: auto !important; }
-  body.modal-open a,
-  body.modal-open button,
-  body.modal-open .btn,
-  body.modal-open .nav-cta,
-  body.modal-open [data-booking-close] { cursor: pointer !important; }
-  body.modal-open #cursor,
-  body.modal-open #cursor-ring { display: none !important; }
+  body.modal-open, body.modal-open * { cursor: auto !important; }
+  body.modal-open a, body.modal-open button, body.modal-open [data-booking-close] { cursor: pointer !important; }
+  body.modal-open #cursor, body.modal-open #cursor-ring { display: none !important; }
   .booking-modal {
     position: fixed;
     inset: 0;
@@ -1421,7 +953,6 @@
     background: rgba(14,13,15,0.85);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    cursor: pointer;
     animation: bookingFade 0.25s ease;
   }
   .booking-modal-dialog {
@@ -1436,16 +967,10 @@
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-    animation: bookingScale 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: bookingScale 0.3s var(--ease);
   }
-  @keyframes bookingFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes bookingScale {
-    from { opacity: 0; transform: translateY(20px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
+  @keyframes bookingFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes bookingScale { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: none; } }
   .booking-modal-header {
     display: flex;
     align-items: center;
@@ -1455,61 +980,28 @@
     background: var(--noir-brand);
     flex-shrink: 0;
   }
-  .booking-modal-title {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 1px;
-    margin: 0;
-  }
+  .booking-modal-title { font-family: var(--font-display); font-size: 19px; font-weight: 400; color: var(--white); margin: 0; }
   .booking-modal-close {
     background: transparent;
     border: 1px solid rgba(191,178,189,0.3);
-    width: 38px;
-    height: 38px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
+    width: 38px; height: 38px;
+    display: inline-flex; align-items: center; justify-content: center;
     color: var(--gris-claro);
     padding: 0;
+    transition: all 0.3s;
   }
-  .booking-modal-close:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-  .booking-modal-close svg {
-    width: 16px;
-    height: 16px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 1.6;
-  }
-  .booking-modal-body {
-    flex: 1;
-    position: relative;
-    background: #f5f0f4;
-    overflow: hidden;
-  }
-  .booking-modal-body iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
-  }
+  .booking-modal-close:hover { border-color: var(--gold); color: var(--gold); }
+  .booking-modal-close svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+  .booking-modal-body { flex: 1; position: relative; background: #f5f0f4; overflow: hidden; }
+  .booking-modal-body iframe { width: 100%; height: 100%; border: 0; display: block; }
   .booking-modal-loader {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     background: #f5f0f4;
     color: var(--noir-brand);
-    font-family: var(--font-ui);
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     pointer-events: none;
     transition: opacity 0.3s;
@@ -1517,28 +1009,21 @@
   .booking-modal.loaded .booking-modal-loader { opacity: 0; }
   @media (max-width: 640px) {
     .booking-modal { padding: 0; }
-    .booking-modal-dialog {
-      height: 100vh;
-      max-height: none;
-      border: 0;
-    }
+    .booking-modal-dialog { height: 100vh; height: 100dvh; max-height: none; border: 0; }
     .booking-modal-header { padding: 14px 16px; }
-    .booking-modal-title { font-size: 16px; letter-spacing: 0.5px; }
-    .booking-modal-close { width: 34px; height: 34px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ─── CUSTOM CURSOR ─── -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
 <!-- ─── NAV ─── -->
-<nav id="navbar">
+<header id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo" aria-label="NOiR Barber Club">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 218.56 154.74" height="56" style="display:block;">
+    <a href="#hero" class="nav-logo" aria-label="NOiR Barber Club, inicio">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 218.56 154.74" role="img" aria-hidden="true">
         <defs>
           <style>.nlcls-1{font-family:PlayfairDisplay-Regular,'Playfair Display';font-size:35px;}.nlcls-1,.nlcls-2{fill:#fff;}.nlcls-3{letter-spacing:-.01em;}.nlcls-4{letter-spacing:-.01em;}.nlcls-5{letter-spacing:-.02em;}.nlcls-6{letter-spacing:.04em;}.nlcls-7{letter-spacing:0em;}.nlcls-8{letter-spacing:0em;}</style>
         </defs>
@@ -1550,63 +1035,78 @@
       </svg>
     </a>
     <ul class="nav-links">
-      <li><a href="#about">Sobre Nosotros</a></li>
+      <li><a href="#about">Nosotros</a></li>
       <li><a href="#services">Servicios</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#instagram">Galería</a></li>
-      <li><a href="#locations">Ubicaciones</a></li>
-      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#locations">Visítanos</a></li>
     </ul>
-    <a href="https://booksy.com/es-es/instant-experiences/widget/120994,145716,174546" data-booking="widget" target="_blank" rel="noopener" class="nav-cta">Reservar Cita</a>
+    <a href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking="pozuelo" target="_blank" rel="noopener" class="nav-cta">Reservar cita</a>
+    <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
   </div>
-</nav>
+</header>
+
+<div id="mobile-menu" aria-hidden="true">
+  <ul>
+    <li><a href="#about">Nosotros <span>I</span></a></li>
+    <li><a href="#services">Servicios <span>II</span></a></li>
+    <li><a href="#experience">Noir Experience <span>III</span></a></li>
+    <li><a href="#instagram">Galería <span>IV</span></a></li>
+    <li><a href="#locations">Visítanos <span>V</span></a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <a href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking="pozuelo" target="_blank" rel="noopener" class="btn btn-primary"><span>Reservar cita</span></a>
+    <a href="https://wa.me/34619778120" target="_blank" rel="noopener" class="btn"><span>WhatsApp 619 77 81 20</span></a>
+    <p>Avenida de Europa, 18, Pozuelo de Alarcón</p>
+  </div>
+</div>
+
+<main>
 
 <!-- ─── HERO ─── -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Noir Barber Club — Madrid</div>
-    <h1 class="hero-headline">
-      <span class="hero-bracket">{</span> Esto no es<br class="br-mobile"> una peluquería <span class="hero-bracket">}</span>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">Noir Barber Club, Pozuelo de Alarcón</p>
+    <h1 class="hero-title">
+      <span class="brace brace-l" aria-hidden="true">{</span>
+      <span class="hero-words">Esto no es<br>una peluquería</span>
+      <span class="brace brace-r" aria-hidden="true">}</span>
     </h1>
-    <p class="hero-body">
-      Aquí no encontrarás revistas viejas ni sillas de espera incómodas. 
-      Encontrarás a alguien que sabe exactamente lo que hace, y que lo hace 
+    <p class="hero-lede">
+      Aquí no encontrarás revistas viejas ni sillas de espera incómodas.
+      Encontrarás a alguien que sabe exactamente lo que hace, y que lo hace
       con la precisión de quien convirtió su oficio en arte.
     </p>
     <div class="hero-actions">
-      <a href="https://booksy.com/es-es/instant-experiences/widget/120994,145716,174546" data-booking="widget" target="_blank" rel="noopener" class="btn btn-primary">
-        <span>Reservar Cita</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking="pozuelo" target="_blank" rel="noopener" class="btn btn-primary">
+        <span>Reservar cita</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#services" class="btn btn-ghost">
-        <span>Ver Servicios</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="#services" class="btn">
+        <span>Ver servicios</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
-</section>
-
-<!-- ─── BOOKING BANNER ─── -->
-<section id="booking-banner">
-  <div class="booking-inner">
-    <div class="booking-left">
-      <div class="booking-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="stroke: var(--gold);">
-          <rect x="3" y="4" width="18" height="18" rx="1"/><path d="M16 2v4M8 2v4M3 10h18"/>
-        </svg>
-      </div>
-      <div>
-        <div class="booking-text-label">Agenda tu momento</div>
-        <div class="booking-text-title">Reservar Cita</div>
-        <div class="booking-sub">Elige tu hora. Nosotros hacemos el resto.</div>
-      </div>
+  <div class="hero-bar">
+    <div class="hero-bar-inner">
+      <a class="hb-item" href="https://www.google.com/maps/dir/?api=1&destination=Avenida+de+Europa+18%2C+28224+Pozuelo+de+Alarc%C3%B3n" target="_blank" rel="noopener">
+        <span class="hb-label">Dónde estamos</span>
+        <span class="hb-value">Avenida de Europa, 18, Pozuelo</span>
+      </a>
+      <a class="hb-item" href="https://wa.me/34619778120" target="_blank" rel="noopener">
+        <span class="hb-label">Móvil y WhatsApp</span>
+        <span class="hb-value">619 77 81 20</span>
+      </a>
+      <a class="hb-item" href="tel:+34915276687">
+        <span class="hb-label">Teléfono fijo</span>
+        <span class="hb-value">91 527 66 87</span>
+      </a>
     </div>
-    <a href="https://booksy.com/es-es/instant-experiences/widget/120994,145716,174546" data-booking="widget" target="_blank" rel="noopener" class="btn btn-primary">
-      <span>Solicitar Reserva</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
   </div>
 </section>
 
@@ -1614,24 +1114,18 @@
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-img-wrap reveal-left">
+      <figure class="about-figure reveal">
         <img
-          class="about-img-main"
-          src="https://www.noirclub.es/wp-content/uploads/2025/12/noir-club-barberia-peluqueria-madrid-13-scaled.jpg"
-          alt="Interior Noir Barber Club"
+          src="https://www.noirclub.es/wp-content/uploads/2025/12/barberia-pozuelo-alarcon-noir-15-scaled.jpg"
+          alt="Interior de Noir Barber Club en Pozuelo de Alarcón"
+          loading="lazy" onerror="this.onerror=null;this.src='./img/pozuelo.jpg'"
         />
-        <div class="about-img-counter">
-          <span class="num">2</span>
-          <span class="lbl">Ubicaciones</span>
-        </div>
-      </div>
-      <div class="about-text reveal-right">
-        <div class="section-label">Sobre Nosotros</div>
-        <h2>
-          Pasión por<br>
-          <em>el detalle</em>
-        </h2>
-        <p>
+        <figcaption>Noir Pozuelo, Avenida de Europa 18</figcaption>
+      </figure>
+      <div class="about-text reveal reveal-d1">
+        <span class="kicker">Sobre nosotros</span>
+        <h2 class="h2">Pasión por el detalle</h2>
+        <p class="about-first">
           Noir Barber Club no nació para ser otra barbería más. Nació para
           recuperar lo que se perdió: el ritual, la precisión, el respeto
           por el tiempo que alguien deposita en tus manos.
@@ -1646,28 +1140,29 @@
           este oficio porque creen, como nosotros, que hay belleza en la precisión
           y orgullo en el trabajo bien hecho.
         </p>
-        <div class="about-values">
-          <div class="about-value">
-            <div class="about-value-icon">Técnica</div>
-            <p>Siempre al día en tendencias, cortes y estilos de vanguardia.</p>
-          </div>
-          <div class="about-value">
-            <div class="about-value-icon">Trato</div>
-            <p>Te sentirás como en casa. Porque eso es exactamente lo que es.</p>
-          </div>
-          <div class="about-value">
-            <div class="about-value-icon">Calidad</div>
-            <p>No existe el "suficientemente bueno". Cada servicio debe ser perfecto.</p>
-          </div>
-          <div class="about-value">
-            <div class="about-value-icon">Experiencia</div>
-            <p>No es solo un corte. Es un momento que mereces para ti.</p>
-          </div>
-        </div>
-        <a href="#services" class="btn btn-primary">
-          <span>Descubrir Servicios</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="#services" class="btn">
+          <span>Descubrir servicios</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+      </div>
+    </div>
+
+    <div class="values reveal">
+      <div class="value">
+        <h3>Técnica</h3>
+        <p>Siempre al día en tendencias, cortes y estilos de vanguardia.</p>
+      </div>
+      <div class="value">
+        <h3>Trato</h3>
+        <p>Te sentirás como en casa. Porque eso es exactamente lo que es.</p>
+      </div>
+      <div class="value">
+        <h3>Calidad</h3>
+        <p>No existe el "suficientemente bueno". Cada servicio debe ser perfecto.</p>
+      </div>
+      <div class="value">
+        <h3>Experiencia</h3>
+        <p>No es solo un corte. Es un momento que mereces para ti.</p>
       </div>
     </div>
   </div>
@@ -1676,306 +1171,232 @@
 <!-- ─── SERVICES ─── -->
 <section id="services">
   <div class="container">
-    <div class="services-header reveal">
-      <div class="section-label" style="justify-content: center;">Nuestros Servicios</div>
-      <h2>
-        Lo que hacemos,<br>
-        <em>lo hacemos bien</em>
-      </h2>
-      <p>Cada servicio diseñado para que salgas exactamente como imaginabas.</p>
+    <div class="services-head reveal">
+      <div>
+        <span class="kicker">Nuestros servicios</span>
+        <h2 class="h2">Lo que hacemos,<br>lo hacemos bien</h2>
+      </div>
+      <p class="lede">Cada servicio diseñado para que salgas exactamente como imaginabas.</p>
     </div>
-    <div class="services-grid reveal">
 
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 3l12 18M6 21l12-18M9.5 9.5L14.5 9.5"/></svg>
-        </div>
-        <h3>Corte Noir</h3>
+    <div class="menu reveal">
+      <div class="menu-item">
+        <div class="menu-row"><h3>Corte Noir</h3><span class="leader"></span><span class="price">17€</span></div>
         <p>El corte que define el estilo Noir. Adaptado a tu rostro, ejecutado con precisión.</p>
-        <span class="price">17€</span>
-        <span class="price-from">Nuestro clásico</span>
+        <span class="menu-note">Nuestro clásico</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 3l12 18M6 21l12-18M9.5 9.5L14.5 9.5"/><circle cx="20" cy="4" r="1.6" fill="currentColor" stroke="none"/></svg>
-        </div>
-        <h3>Corte Noir Premium</h3>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Corte Noir Premium</h3><span class="leader"></span><span class="price">25€</span></div>
         <p>El mismo corte, llevado al máximo nivel de detalle, técnica y acabado.</p>
-        <span class="price">25€</span>
-        <span class="price-from">Versión premium</span>
+        <span class="menu-note">Versión premium</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </div>
-        <h3>Noir Experience</h3>
+      <div class="menu-item is-featured">
+        <div class="menu-row"><h3>Noir Experience</h3><span class="leader"></span><span class="price">30€</span></div>
         <p>Corte + barba + ritual de vaporizador caliente. La experiencia Noir al completo.</p>
-        <span class="price">30€</span>
-        <span class="price-from">Servicio completo</span>
+        <span class="menu-note">Servicio completo</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3>Noir Experience Premium</h3>
+      <div class="menu-item is-featured">
+        <div class="menu-row"><h3>Noir Experience Premium</h3><span class="leader"></span><span class="price">40€</span></div>
         <p>La experiencia más completa. Cada paso elevado al máximo nivel.</p>
-        <span class="price">40€</span>
-        <span class="price-from">Lo mejor de Noir</span>
+        <span class="menu-note">Lo mejor de Noir</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M8 13C8 13 6 14 6 17C6 19 8 21 12 21C16 21 18 19 18 17C18 14 16 13 16 13"/><path d="M9 11L9 13M15 11L15 13"/></svg>
-        </div>
-        <h3>Arreglo de Barba</h3>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Arreglo de Barba</h3><span class="leader"></span><span class="price">16€</span></div>
         <p>Definición, cuidado y perfilado para una barba que habla por sí sola.</p>
-        <span class="price">16€</span>
-        <span class="price-from">Incluye hidratación</span>
+        <span class="menu-note">Incluye hidratación</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M7 3C7 3 5 9 5 13C5 17.4183 8.13401 21 12 21C15.866 21 19 17.4183 19 13C19 9 17 3 17 3"/><path d="M8.5 8L12 4L15.5 8"/><path d="M12 16V12"/></svg>
-        </div>
-        <h3>Afeitado</h3>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Afeitado</h3><span class="leader"></span><span class="price">15€</span></div>
         <p>Navaja, vaporizador caliente y un acabado impecable. El ritual de siempre.</p>
-        <span class="price">15€</span>
-        <span class="price-from">Con vaporizador caliente</span>
+        <span class="menu-note">Con vaporizador caliente</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M6 21v-3a6 6 0 0112 0v3"/></svg>
-        </div>
-        <h3>Corte Niño</h3>
-        <p>Cuidado y paciencia para que también sea su momento. Hasta 11 años.</p>
-        <span class="price">15€</span>
-        <span class="price-from">Hasta 11 años</span>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Corte Niño</h3><span class="leader"></span><span class="price">15€</span></div>
+        <p>Cuidado y paciencia para que también sea su momento.</p>
+        <span class="menu-note">Hasta 11 años</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9l-4.7 1.8L12 15l-1.8-4.7L5.5 9l4.7-1.3z"/><circle cx="18.5" cy="17" r="1"/><circle cx="6" cy="18" r="0.8"/></svg>
-        </div>
-        <h3>Depilación Nariz y Oídos</h3>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Depilación Nariz y Oídos</h3><span class="leader"></span><span class="price">8€</span></div>
         <p>Los detalles que completan un look impecable.</p>
-        <span class="price">8€</span>
-        <span class="price-from">Detalle final</span>
+        <span class="menu-note">Detalle final</span>
       </div>
-
     </div>
-    <div style="text-align:center; margin-top: 56px;" class="reveal">
-      <a href="https://booksy.com/es-es/instant-experiences/widget/120994,145716,174546" data-booking="widget" target="_blank" rel="noopener" class="btn btn-primary">
+
+    <div class="services-foot reveal">
+      <p>Precios orientativos. Consulta la tarifa vigente al reservar.</p>
+      <a href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking="pozuelo" target="_blank" rel="noopener" class="btn btn-primary">
         <span>Reservar ahora</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ─── INSTAGRAM ─── -->
+<!-- ─── NOIR EXPERIENCE ─── -->
+<section id="experience">
+  <div class="exp-grid">
+    <div class="exp-img">
+      <img src="./img/header.jpg" alt="Barbero de Noir trabajando un corte con tijera" loading="lazy" />
+    </div>
+    <div class="exp-content reveal">
+      <span class="kicker">Servicio completo</span>
+      <h2 class="h2">Noir Experience</h2>
+      <p class="lede">No es solo un corte. Es un momento que mereces para ti, de principio a fin.</p>
+      <ol class="ritual">
+        <li>
+          <div>
+            <h3>Corte</h3>
+            <p>Adaptado a tu rostro, ejecutado con precisión.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Barba</h3>
+            <p>Definición, cuidado y perfilado.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Vaporizador caliente</h3>
+            <p>El ritual de siempre para cerrar con un acabado impecable.</p>
+          </div>
+        </li>
+      </ol>
+      <div class="exp-prices">
+        <div class="exp-price"><strong>30€</strong><span>Noir Experience</span></div>
+        <div class="exp-price"><strong>40€</strong><span>Noir Experience Premium</span></div>
+      </div>
+      <div>
+        <a href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking="pozuelo" target="_blank" rel="noopener" class="btn btn-primary">
+          <span>Reservar la experiencia</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
 <section id="instagram">
   <div class="container">
-    <div class="reveal">
-      <div class="section-label" style="justify-content:center;">Síguenos en Instagram</div>
-      <div class="insta-handle">
-        <a href="https://www.instagram.com/noirbarberclub" target="_blank">@noirbarberclub</a>
+    <div class="gallery-head reveal">
+      <div>
+        <span class="kicker">Síguenos en Instagram</span>
+        <h2 class="h2"><a href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener">@noirbarberclub</a></h2>
+        <p>Cada imagen, una historia. Cada corte, una firma.</p>
       </div>
-      <p style="font-family: var(--font-body); font-size:14px; font-weight:300; color:var(--gris-noir); max-width:460px; margin: 0 auto; letter-spacing: 0.03em;">
-        Cada imagen, una historia. Cada corte, una firma.
-      </p>
-    </div>
-    <div class="insta-grid reveal">
-      <div class="insta-item">
-        <img src="https://www.noirclub.es/wp-content/uploads/2025/12/noir-club-barberia-peluqueria-madrid-13-scaled.jpg" alt="Noir Barber Club" />
-        <div class="insta-overlay">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="white"/></svg>
-        </div>
-      </div>
-      <div class="insta-item">
-        <img src="https://www.noirclub.es/wp-content/uploads/2025/12/noir-club-barberia-peluqueria-madrid-60.jpg" alt="Noir Barber Club" />
-        <div class="insta-overlay">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="white"/></svg>
-        </div>
-      </div>
-      <div class="insta-item">
-        <img src="https://www.noirclub.es/wp-content/uploads/2025/12/barberia-pozuelo-alarcon-noir-15-scaled.jpg" alt="Noir Barber Club" />
-        <div class="insta-overlay">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="white"/></svg>
-        </div>
-      </div>
-    </div>
-    <div class="insta-more reveal">
-      <a href="https://www.instagram.com/noirbarberclub" target="_blank" class="btn">
+      <a href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener" class="btn">
         <span>Ver más en Instagram</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="gallery reveal">
+      <a class="g-item" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener" aria-label="Ver en Instagram">
+        <img src="https://www.noirclub.es/wp-content/uploads/2025/12/barberia-pozuelo-alarcon-noir-15-scaled.jpg" alt="Noir Barber Club Pozuelo" loading="lazy" onerror="this.onerror=null;this.src='./img/pozuelo.jpg'" />
+      </a>
+      <a class="g-item" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener" aria-label="Ver en Instagram">
+        <img src="https://www.noirclub.es/wp-content/uploads/2025/12/noir-club-barberia-peluqueria-madrid-13-scaled.jpg" alt="Noir Barber Club" loading="lazy" onerror="this.onerror=null;this.src='./img/pozuelo.jpg'" />
+      </a>
+      <a class="g-item" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener" aria-label="Ver en Instagram">
+        <img src="https://www.noirclub.es/wp-content/uploads/2025/12/noir-club-barberia-peluqueria-madrid-60.jpg" alt="Noir Barber Club" loading="lazy" onerror="this.onerror=null;this.src='./img/pozuelo.jpg'" />
       </a>
     </div>
   </div>
 </section>
 
-<!-- ─── LOCATIONS ─── -->
+<!-- ─── LOCATION ─── -->
 <section id="locations">
   <div class="container">
-    <div class="locations-header reveal">
-      <div class="section-label" style="justify-content:center;">Nuestras Barberías</div>
-      <h2>
-        Dos localizaciones.<br>
-        <em>Un solo estándar.</em>
-      </h2>
-      <p style="font-family: var(--font-body); font-size:14px; font-weight:300; color:var(--gris-claro); letter-spacing:0.03em;">Encuéntranos en Madrid. Siempre cerca, siempre al nivel que mereces.</p>
-    </div>
-    <div class="locations-grid">
-
-      <div class="location-card reveal">
-        <span class="loc-num">01</span>
-        <h3>Noir Chueca</h3>
-        <div class="loc-district">Madrid Centro</div>
-        <img
-          class="loc-img"
-          src="./img/chueca.jpg"
-          alt="Noir Chueca"
-        />
-        <div class="loc-info">
-          <div class="loc-info-item">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <span>Calle Hernán Cortés, 21, 28004, Madrid</span>
+    <div class="loc-grid">
+      <figure class="loc-figure reveal">
+        <img src="./img/pozuelo.jpg" alt="Sillones de barbero en Noir Pozuelo" loading="lazy" />
+        <figcaption>Noir Pozuelo</figcaption>
+      </figure>
+      <div class="loc-content reveal reveal-d1">
+        <span class="kicker">Visítanos</span>
+        <h2 class="h2">Te esperamos en Pozuelo</h2>
+        <p class="lede">Siempre cerca, siempre al nivel que mereces.</p>
+        <dl class="loc-details">
+          <div class="loc-row">
+            <dt>Dirección</dt>
+            <dd>Avenida de Europa, 18<br>28224 Pozuelo de Alarcón</dd>
           </div>
-          <div class="loc-info-item">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5 19.79 19.79 0 01.02 4.82 2 2 0 012 2.65h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10a16 16 0 006.09 6.09l.31-.31a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            <a href="tel:+34682768894">682 768 894</a>
+          <div class="loc-row">
+            <dt>Móvil y WhatsApp</dt>
+            <dd><a href="tel:+34619778120">619 77 81 20</a></dd>
           </div>
-        </div>
+          <div class="loc-row">
+            <dt>Teléfono fijo</dt>
+            <dd><a href="tel:+34915276687">91 527 66 87</a></dd>
+          </div>
+        </dl>
         <div class="loc-actions">
-          <a href="https://wa.me/34682768894" target="_blank" class="loc-action-btn" aria-label="WhatsApp Chueca">
-            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          <a href="https://booksy.com/es-es/174546_noir-pozuelo_barberia_53097_pozuelo-de-alarcon#ba_s=seo" data-booking="pozuelo" target="_blank" rel="noopener" class="btn btn-primary">
+            <span>Reservar aquí</span>
+          </a>
+          <a href="https://wa.me/34619778120" target="_blank" rel="noopener" class="btn" aria-label="WhatsApp Pozuelo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
             <span>WhatsApp</span>
           </a>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+Hern%C3%A1n+Cort%C3%A9s+21%2C+28004+Madrid" target="_blank" class="loc-action-btn" aria-label="Cómo llegar a Chueca">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Avenida+de+Europa+18%2C+28224+Pozuelo+de+Alarc%C3%B3n" target="_blank" rel="noopener" class="btn" aria-label="Cómo llegar a Noir Pozuelo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
             <span>Cómo llegar</span>
           </a>
         </div>
-        <a href="https://booksy.com/es-es/145716_noir-chueca_barberia_53009_madrid#ba_s=sr_1" data-booking="chueca" target="_blank" rel="noopener" class="btn">
-          <span>Reservar aquí</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
       </div>
-
-      <div class="location-card reveal" style="transition-delay: 0.15s;">
-        <span class="loc-num">02</span>
-        <h3>Noir Pozuelo</h3>
-        <div class="loc-district">Pozuelo de Alarcón</div>
-        <img
-          class="loc-img"
-          src="./img/pozuelo.jpg"
-          alt="Noir Pozuelo"
-        />
-        <div class="loc-info">
-          <div class="loc-info-item">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <span>Avenida de Europa, 18, 28224, Pozuelo de Alarcón</span>
-          </div>
-          <div class="loc-info-item">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5 19.79 19.79 0 01.02 4.82 2 2 0 012 2.65h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10a16 16 0 006.09 6.09l.31-.31a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            <span><a href="tel:+34619778120">619 77 81 20</a> · <a href="tel:+34915276687">91 527 66 87</a></span>
-          </div>
-        </div>
-        <div class="loc-actions">
-          <a href="https://wa.me/34619778120" target="_blank" class="loc-action-btn" aria-label="WhatsApp Pozuelo">
-            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-            <span>WhatsApp</span>
-          </a>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Avenida+de+Europa+18%2C+28224+Pozuelo+de+Alarc%C3%B3n" target="_blank" class="loc-action-btn" aria-label="Cómo llegar a Pozuelo">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <span>Cómo llegar</span>
-          </a>
-        </div>
-        <a href="https://booksy.com/es-es/174546_noir-pozuelo_barberia_53097_pozuelo-de-alarcon#ba_s=seo" data-booking="pozuelo" target="_blank" rel="noopener" class="btn">
-          <span>Reservar aquí</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
     </div>
   </div>
 </section>
 
 <!-- ─── CONTACT ─── -->
 <section id="contact">
-  <div class="contact-split">
-    <div class="contact-left">
-      <img
-        src="https://www.noirclub.es/wp-content/uploads/2025/12/barberia-pozuelo-alarcon-noir-15-scaled.jpg"
-        alt="Noir Barber Club"
-      />
-      <div class="contact-left-content">
-        <div class="section-label">Contacto</div>
-        <h2>
-          Estamos<br>
-          <em>para ti</em>
-        </h2>
-        <p>
-          ¿Tienes alguna duda, quieres hacer una consulta o simplemente necesitas 
-          hablar con alguien que entienda de esto? Escríbenos.
-        </p>
-        <a href="https://wa.me/34682768894" target="_blank" class="btn btn-primary">
-          <span>Contactar vía WhatsApp</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="contact-right">
-      <div class="section-label">Habla con nosotros</div>
-      <h3>¿En qué podemos ayudarte?</h3>
-      <p class="subtitle">Elige cómo prefieres contactarnos.</p>
-      <div class="contact-channels">
-        <a href="https://booksy.com/es-es/instant-experiences/widget/120994,145716,174546" data-booking="widget" target="_blank" rel="noopener" class="contact-channel">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="1"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <div>
-            <span class="contact-channel-label">Cita previa</span>
-            <span class="contact-channel-value">Reservar online</span>
-          </div>
-        </a>
-        <a href="https://wa.me/34682768894" target="_blank" class="contact-channel">
-          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          <div>
-            <span class="contact-channel-label">WhatsApp · Chueca</span>
-            <span class="contact-channel-value">682 768 894</span>
-          </div>
-        </a>
-        <a href="https://wa.me/34619778120" target="_blank" class="contact-channel">
-          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          <div>
-            <span class="contact-channel-label">WhatsApp · Pozuelo</span>
-            <span class="contact-channel-value">619 77 81 20</span>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/noirbarberclub" target="_blank" class="contact-channel">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--gold)" stroke="none"/></svg>
-          <div>
-            <span class="contact-channel-label">Instagram</span>
-            <span class="contact-channel-value">@noirbarberclub</span>
-          </div>
-        </a>
-      </div>
-      <p style="font-family:var(--font-body); font-size:13px; font-weight:300; color:var(--gris-noir); line-height:1.7; letter-spacing:0.02em;">
-        Nuestro equipo responde en menos de 24h. Para reservas urgentes, 
-        recomendamos WhatsApp o reserva directa online.
+  <div class="container">
+    <div class="reveal">
+      <h2 class="contact-title">
+        <span class="brace" aria-hidden="true">{</span>
+        <span>Estamos para ti</span>
+        <span class="brace" aria-hidden="true">}</span>
+      </h2>
+      <p class="lede">
+        ¿Tienes alguna duda, quieres hacer una consulta o simplemente necesitas
+        hablar con alguien que entienda de esto? Escríbenos.
       </p>
     </div>
+    <div class="channels reveal">
+      <a href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking="pozuelo" target="_blank" rel="noopener" class="channel">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="1"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span class="channel-label">Cita previa</span>
+        <span class="channel-value">Reservar online</span>
+      </a>
+      <a href="https://wa.me/34619778120" target="_blank" rel="noopener" class="channel">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        <span class="channel-label">WhatsApp</span>
+        <span class="channel-value">619 77 81 20</span>
+      </a>
+      <a href="tel:+34915276687" class="channel">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5 19.79 19.79 0 01.02 4.82 2 2 0 012 2.65h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10a16 16 0 006.09 6.09l.31-.31a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="channel-label">Teléfono fijo</span>
+        <span class="channel-value">91 527 66 87</span>
+      </a>
+      <a href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener" class="channel">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--gold)" stroke="none"/></svg>
+        <span class="channel-label">Instagram</span>
+        <span class="channel-value">@noirbarberclub</span>
+      </a>
+    </div>
+    <p class="contact-note">Respondemos en menos de 24h. Para reservas urgentes, WhatsApp o reserva directa online.</p>
   </div>
 </section>
 
+</main>
+
 <!-- ─── FOOTER ─── -->
 <footer>
-  <div class="footer-inner">
-    <p class="footer-copy">© Noir Barber Club 2026<br>Todos los derechos reservados</p>
-    <div class="footer-logo">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 218.56 154.74" height="92" style="display:block; opacity:0.45;">
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-copy">© Noir Barber Club 2026<br>Todos los derechos reservados</p>
+      <div class="footer-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 218.56 154.74" role="img" aria-hidden="true">
         <defs>
           <style>.flcls-1{font-family:PlayfairDisplay-Regular,'Playfair Display';font-size:35px;}.flcls-1,.flcls-2{fill:#fff;}.flcls-3{letter-spacing:-.01em;}.flcls-4{letter-spacing:-.01em;}.flcls-5{letter-spacing:-.02em;}.flcls-6{letter-spacing:.04em;}.flcls-7{letter-spacing:0em;}.flcls-8{letter-spacing:0em;}</style>
         </defs>
@@ -1985,31 +1406,32 @@
         <circle class="flcls-2" cx="150.96" cy="7.29" r="7.29"/>
         <text class="flcls-1" transform="translate(3.99 146.31)"><tspan class="flcls-6" x="0" y="0">{</tspan><tspan class="flcls-8" x="11.9" y="0">Ba</tspan><tspan class="flcls-3" x="51.48" y="0">r</tspan><tspan class="flcls-7" x="66.53" y="0">be</tspan><tspan class="flcls-5" x="104.3" y="0">r</tspan><tspan class="flcls-7" x="119.31" y="0" xml:space="preserve"> Clu</tspan><tspan class="flcls-4" x="183.15" y="0">b</tspan><tspan class="flcls-7" x="202.33" y="0">}</tspan></text>
       </svg>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/34619778120" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+      </div>
     </div>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/noirbarberclub" target="_blank" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="var(--gris-noir)" stroke="none"/></svg>
-      </a>
-      <a href="https://wa.me/34682768894" target="_blank" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-      </a>
+    <div class="footer-bottom">
+      <span>Noir Barber Club, Avenida de Europa 18, Pozuelo de Alarcón</span>
+      <ul class="footer-nav">
+        <li><a href="#about">Nosotros</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#locations">Visítanos</a></li>
+        <li><a href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking="pozuelo" target="_blank" rel="noopener">Cita previa</a></li>
+      </ul>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <span>Noir Barber Club — Madrid, España</span>
-    <ul class="footer-nav">
-      <li><a href="#about">Sobre Nosotros</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#locations">Ubicaciones</a></li>
-      <li><a href="https://booksy.com/es-es/instant-experiences/widget/120994,145716,174546" data-booking="widget" target="_blank" rel="noopener">Cita Previa</a></li>
-    </ul>
-  </div>
-  <div class="footer-legal">
-    <ul class="footer-legal-nav">
-      <li><a href="/aviso-legal.html">Aviso Legal</a></li>
-      <li><a href="/privacidad.html">Política de Privacidad</a></li>
-      <li><a href="/cookies.html">Política de Cookies</a></li>
-    </ul>
+    <div class="footer-legal">
+      <ul class="footer-legal-nav">
+        <li><a href="/aviso-legal.html">Aviso legal</a></li>
+        <li><a href="/privacidad.html">Política de privacidad</a></li>
+        <li><a href="/cookies.html">Política de cookies</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
 
@@ -2029,93 +1451,110 @@
   <div class="booking-modal-backdrop" data-booking-close></div>
   <div class="booking-modal-dialog">
     <div class="booking-modal-header">
-      <h2 id="booking-modal-title" class="booking-modal-title">Reservar Cita</h2>
+      <h2 id="booking-modal-title" class="booking-modal-title">Reservar cita en Noir Pozuelo</h2>
       <button type="button" class="booking-modal-close" aria-label="Cerrar" data-booking-close>
         <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
     <div class="booking-modal-body">
       <div class="booking-modal-loader">Cargando…</div>
-      <iframe id="booking-iframe" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Reservar Cita"></iframe>
+      <iframe id="booking-iframe" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Reservar cita"></iframe>
     </div>
   </div>
 </div>
 
 <script>
-  // ─── CURSOR
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
-  (function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
+  // ─── CURSOR (solo en dispositivos con ratón)
+  (function() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = -100, my = -100, rx = -100, ry = -100;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+    (function animRing() {
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '4px'; cursor.style.height = '4px';
+        ring.style.width = '56px'; ring.style.height = '56px';
+        ring.style.borderColor = 'rgba(201,169,110,0.9)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '8px'; cursor.style.height = '8px';
+        ring.style.width = '34px'; ring.style.height = '34px';
+        ring.style.borderColor = 'rgba(201,169,110,0.5)';
+      });
+    });
   })();
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.width = '14px';
-      cursor.style.height = '14px';
-      ring.style.width = '48px';
-      ring.style.height = '48px';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.width = '8px';
-      cursor.style.height = '8px';
-      ring.style.width = '30px';
-      ring.style.height = '30px';
-    });
-  });
 
-  // ─── NAV SCROLL
+  // ─── NAV SCROLL + PARALLAX
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-  });
-
-  // ─── HERO PARALLAX
   const heroBg = document.querySelector('.hero-bg');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    if (scrollY < window.innerHeight) {
-      heroBg.style.transform = `scale(1) translateY(${scrollY * 0.3}px)`;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let ticking = false;
+  function onScroll() {
+    const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 40);
+    if (!reduceMotion && heroBg && y < window.innerHeight) {
+      heroBg.style.translate = '0 ' + (y * 0.25) + 'px';
     }
-  });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
+
+  // ─── MENÚ MÓVIL
+  (function() {
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    function setMenu(open) {
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    toggle.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+    menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 1024) setMenu(false); });
+  })();
 
   // ─── SCROLL REVEAL
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
+  (function() {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('visible')); return; }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => observer.observe(el));
+  })();
 
   // ─── COOKIE BANNER
   (function() {
     const STORAGE_KEY = 'noir_cookie_consent';
     const banner = document.getElementById('cookie-banner');
     if (!banner) return;
-
     let stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     if (!stored) banner.hidden = false;
-
     function setConsent(value) {
       try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
       banner.hidden = true;
     }
-
     banner.addEventListener('click', function(e) {
       if (e.target.closest('[data-cookie-accept]')) setConsent('accepted');
       else if (e.target.closest('[data-cookie-reject]')) setConsent('rejected');
@@ -2129,13 +1568,11 @@
     if (!modal || !iframe) return;
 
     const WIDGET_URLS = {
-      widget:  'https://booksy.com/es-es/instant-experiences/widget/120994,145716,174546',
-      chueca:  'https://booksy.com/es-es/instant-experiences/widget/145716',
       pozuelo: 'https://booksy.com/es-es/instant-experiences/widget/174546'
     };
 
     function openBooking(which) {
-      const url = WIDGET_URLS[which] || WIDGET_URLS.widget;
+      const url = WIDGET_URLS[which] || WIDGET_URLS.pozuelo;
       modal.classList.remove('loaded');
       iframe.src = url;
       modal.classList.add('active');
@@ -2158,6 +1595,7 @@
       const trigger = e.target.closest('[data-booking]');
       if (trigger) {
         e.preventDefault();
+        document.body.classList.remove('menu-open');
         openBooking(trigger.getAttribute('data-booking'));
         return;
       }
@@ -2168,9 +1606,7 @@
     });
 
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeBooking();
-      }
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeBooking();
     });
   })();
 </script>
