@@ -39,22 +39,27 @@
     els.forEach(function (el) { el.classList.add('in'); });
   }
 
-  // ─── Vídeos del reel: reproducir solo cuando se ven
-  var vids = document.querySelectorAll('video[data-lazy]');
-  if ('IntersectionObserver' in window && vids.length) {
-    var vio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        var v = en.target;
-        if (en.isIntersecting) {
-          if (!v.src && v.dataset.src) v.src = v.dataset.src;
-          var p = v.play(); if (p && p.catch) p.catch(function () {});
-        } else {
-          v.pause();
-        }
-      });
-    }, { rootMargin: '200px 0px' });
-    vids.forEach(function (v) { vio.observe(v); });
+  // ─── Vídeos: reproducir solo cuando se ven
+  var vio = ('IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      var v = en.target;
+      if (en.isIntersecting) {
+        if (!v.src && v.dataset.src) v.src = v.dataset.src;
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px' }) : null;
+  function watchVideos(scope) {
+    var vids = (scope || document).querySelectorAll('video[data-lazy]');
+    vids.forEach(function (v) {
+      if (vio) vio.observe(v);
+      else { if (!v.src && v.dataset.src) v.src = v.dataset.src; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    });
   }
+  watchVideos(document);
+  window.noirWatchVideos = watchVideos;
 
   // ─── Cookies
   var STORAGE_KEY = 'noir_cookie_consent';
@@ -104,6 +109,50 @@
     if (modal && modal.classList.contains('active')) closeBooking();
     else setMenu(false);
   });
+})();
+
+/* ─── Reel de inicio desde Instagram (Behold.so) ─── */
+(function () {
+  var track = document.getElementById('reel-feed');
+  if (!track || !window.fetch) return;
+  var feedId = (track.getAttribute('data-feed-id') || '').trim();
+  if (!feedId) return;
+  fetch('https://feeds.behold.so/' + encodeURIComponent(feedId))
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (data) {
+      var posts = (data && data.posts) || (Array.isArray(data) ? data : []);
+      var frag = document.createDocumentFragment();
+      posts.slice(0, 6).forEach(function (p) {
+        var link = String(p.permalink || '');
+        if (link.indexOf('https://www.instagram.com/') !== 0) return;
+        var size = p.sizes && (p.sizes.medium || p.sizes.large || p.sizes.small);
+        var thumb = (size && size.mediaUrl) || p.thumbnailUrl || '';
+        var a = document.createElement('a');
+        a.className = 'reel-item';
+        a.href = link; a.target = '_blank'; a.rel = 'noopener';
+        a.setAttribute('aria-label', 'Ver publicación de Noir en Instagram');
+        if (p.mediaType === 'VIDEO' && p.mediaUrl) {
+          var v = document.createElement('video');
+          v.setAttribute('data-lazy', '');
+          v.dataset.src = p.mediaUrl;
+          if (thumb) v.poster = thumb;
+          v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
+          a.appendChild(v);
+        } else if (thumb || p.mediaUrl) {
+          var img = document.createElement('img');
+          img.src = thumb || p.mediaUrl; img.loading = 'lazy';
+          img.alt = String(p.prunedCaption || p.caption || 'Publicación de Noir Barber Club en Instagram').slice(0, 120);
+          a.appendChild(img);
+        } else { return; }
+        frag.appendChild(a);
+      });
+      if (frag.childNodes.length) {
+        track.innerHTML = '';
+        track.appendChild(frag);
+        if (window.noirWatchVideos) window.noirWatchVideos(track);
+      }
+    })
+    .catch(function () { /* si falla, se quedan los clips locales */ });
 })();
 
 /* ─── Galería de Instagram (Behold.so) ───
