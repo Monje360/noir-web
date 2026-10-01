@@ -1,3 +1,4 @@
+/* NOIR BARBER CLUB · JS del sitio · v2 */
 (function () {
   'use strict';
 
@@ -7,18 +8,6 @@
   });
   // Por si la imagen tarda: no dejamos el hero oculto más de 1,5 s
   setTimeout(function () { document.documentElement.classList.add('is-loaded'); }, 1500);
-
-
-  // ─── Punto exacto donde el titular pasa de blanco (foto) a negro (panel)
-  var heroTitle = document.querySelector('.hero-title');
-  var heroMedia = document.querySelector('.hero-media');
-  function setSplit() {
-    if (!heroTitle || !heroMedia) return;
-    var x = heroMedia.getBoundingClientRect().right - heroTitle.getBoundingClientRect().left;
-    heroTitle.style.setProperty('--split', x + 'px');
-  }
-  setSplit();
-  window.addEventListener('resize', setSplit);
 
   // ─── Menú móvil
   var toggle = document.querySelector('.nav-toggle');
@@ -48,6 +37,23 @@
     els.forEach(function (el) { io.observe(el); });
   } else {
     els.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // ─── Vídeos del reel: reproducir solo cuando se ven
+  var vids = document.querySelectorAll('video[data-lazy]');
+  if ('IntersectionObserver' in window && vids.length) {
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          if (!v.src && v.dataset.src) v.src = v.dataset.src;
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    vids.forEach(function (v) { vio.observe(v); });
   }
 
   // ─── Cookies
@@ -98,4 +104,40 @@
     if (modal && modal.classList.contains('active')) closeBooking();
     else setMenu(false);
   });
+})();
+
+/* ─── Galería de Instagram (Behold.so) ───
+   Para activarla: crea un feed JSON gratis en behold.so conectando @noirbarberclub
+   y pega su ID en data-feed-id="" del bloque #ig-grid (nosotros.html). */
+(function () {
+  var grid = document.getElementById('ig-grid');
+  if (!grid) return;
+  var feedId = (grid.getAttribute('data-feed-id') || '').trim();
+  if (!feedId || !window.fetch) return;
+  fetch('https://feeds.behold.so/' + encodeURIComponent(feedId))
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (data) {
+      var posts = (data && data.posts) || (Array.isArray(data) ? data : []);
+      var frag = document.createDocumentFragment();
+      posts.slice(0, 6).forEach(function (p) {
+        var size = p.sizes && (p.sizes.medium || p.sizes.large || p.sizes.small);
+        var src = (size && size.mediaUrl) || (p.mediaType === 'VIDEO' ? p.thumbnailUrl : p.mediaUrl);
+        var link = String(p.permalink || '');
+        if (!src || link.indexOf('https://www.instagram.com/') !== 0) return;
+        var a = document.createElement('a');
+        a.className = 'ig-tile';
+        a.href = link; a.target = '_blank'; a.rel = 'noopener';
+        var img = document.createElement('img');
+        img.src = src; img.loading = 'lazy';
+        img.alt = String(p.prunedCaption || p.caption || 'Publicación de Noir Barber Club en Instagram').slice(0, 120);
+        a.appendChild(img);
+        frag.appendChild(a);
+      });
+      if (frag.childNodes.length) {
+        grid.innerHTML = '';
+        grid.appendChild(frag);
+        grid.classList.add('is-feed');
+      }
+    })
+    .catch(function () { /* si falla, se quedan las fotos del local */ });
 })();
