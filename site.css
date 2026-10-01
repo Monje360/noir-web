@@ -372,7 +372,7 @@ body.menu-open .menu { clip-path: inset(0 0 0 0); }
   position: relative;
 }
 .row-name { font-family: var(--display); font-size: clamp(24px, 2.6vw, 40px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 600; }
-.row-price { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 2.6vw, 40px); line-height: 1; letter-spacing: -0.01em; color: var(--gold); font-weight: 500; }
+.row-price { font-family: var(--display); font-size: clamp(24px, 2.6vw, 40px); line-height: 1; letter-spacing: -0.03em; color: var(--gold); font-weight: 600; }
 .row-desc { grid-column: 1 / -1; max-width: 52ch; font-size: 15px; font-weight: 300; }
 .row-note { grid-column: 1 / -1; font-size: 13px; font-weight: 500; color: var(--gold); }
 
