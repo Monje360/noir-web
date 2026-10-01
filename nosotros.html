@@ -19,7 +19,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 /* ─────────────────────────────────────────────
    NOIR BARBER CLUB · Estilos del sitio
@@ -585,6 +585,196 @@ body.menu-open .cookie-banner { display: none; }
 .group-side .ph img { width: 100%; height: 100%; max-width: none; margin: 0; aspect-ratio: auto; }
 @media (max-width: 960px) { .group-side .ph { max-width: none; aspect-ratio: 16 / 9; } }
 
+/* ═════════════════════════════════════════════
+   CAPA iOS / APPLE + DORADO CORPORATIVO NOIR
+   ═════════════════════════════════════════════ */
+:root {
+  --gold: #c9a96e;          /* dorado corporativo Noir */
+  --gold-light: #e8d5b0;    /* dorado claro corporativo */
+  --gold-deep: #9a7838;     /* dorado para texto sobre fondo claro */
+  --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --card: #f7f3f6;
+  --card-ink: #1d1a1e;
+  --r-sm: 14px;
+  --r: 22px;
+  --r-lg: 30px;
+  --shadow: 0 1px 2px rgba(14,13,15,0.04), 0 10px 30px rgba(14,13,15,0.07);
+  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+body { letter-spacing: -0.011em; }
+::selection { background: var(--gold); color: var(--ink); }
+
+/* Acentos dorados */
+.tag::before { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+.d-xl em, .d-l em { color: var(--gold-deep); }
+.on-ink .d-xl em, .on-ink .d-l em, .on-char .d-xl em, .on-char .d-l em { color: var(--gold); }
+.on-ink .row-price, .on-char .row-price, .price-big { color: var(--gold); }
+.row-price { color: var(--gold-deep); }
+.steps li::before { color: var(--gold); }
+.footer-claim { color: var(--gold); }
+.footer h4 { color: var(--gold); }
+.link-arrow { background-image: linear-gradient(var(--gold), var(--gold)); }
+.value h3::after { content: ''; display: block; width: 28px; height: 2px; border-radius: 2px; background: var(--gold); margin-top: 14px; }
+.menu li a[aria-current="page"] { color: var(--gold); }
+
+/* Botones tipo iOS: píldora, sin borde, pulsación con escala */
+.btn {
+  --b-hover: var(--char);
+  border: 0;
+  border-radius: 999px;
+  min-height: 52px;
+  padding: 0 26px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  background: var(--b-bg);
+  color: var(--b-fg);
+  transition: background-color 0.25s ease, transform 0.35s var(--spring), box-shadow 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn::after { display: none; }
+.btn:hover { background: var(--b-hover); color: var(--b-fg); }
+.btn:active { transform: scale(0.96); }
+.btn svg { width: 19px; height: 19px; }
+.btn-gold { --b-bg: var(--gold); --b-fg: var(--ink); --b-hover: var(--gold-light); box-shadow: 0 6px 20px rgba(201,169,110,0.35); }
+.btn-gold:hover { box-shadow: 0 8px 26px rgba(201,169,110,0.45); }
+.btn-line, .on-ink .btn-line, .on-char .btn-line { border: 0; }
+.btn-line { --b-bg: rgba(14,13,15,0.07); --b-fg: var(--ink); --b-hover: rgba(14,13,15,0.12); }
+.btn-line:hover { color: var(--ink); }
+.on-ink .btn-line, .on-char .btn-line, .menu .btn-line { --b-bg: rgba(235,229,233,0.12); --b-fg: var(--bone); --b-hover: rgba(235,229,233,0.2); }
+.on-ink .btn-line:hover, .on-char .btn-line:hover { color: var(--bone); }
+.on-ink .btn-solid, .on-char .btn-solid { --b-bg: var(--bone); --b-fg: var(--ink); --b-hover: #fff; }
+.btn-lg { min-height: 62px; padding: 0 32px; font-size: 17px; }
+
+/* Barra de navegación translúcida + control segmentado */
+.nav {
+  background: rgba(235,229,233,0.72);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid rgba(14,13,15,0.14);
+}
+.nav-links {
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(14,13,15,0.06);
+}
+.nav-links a {
+  display: block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: none;
+  font-weight: 500;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nav-links a:hover { background: rgba(255,255,255,0.55); }
+.nav-links a[aria-current="page"] { background: #fff; box-shadow: 0 1px 3px rgba(14,13,15,0.12), 0 2px 8px rgba(14,13,15,0.06); }
+.nav .btn { min-height: 42px; padding: 0 20px; font-size: 15px; box-shadow: none; }
+.nav-toggle { border-radius: 50%; width: 44px; height: 44px; }
+.menu-foot .btn { min-height: 56px; }
+
+/* Listas agrupadas tipo iOS (servicios, contacto) */
+.rows, .group .rows {
+  border-top: 0;
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 0 clamp(18px, 2.2vw, 30px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.on-ink .rows, .on-char .rows { background: var(--card-ink); box-shadow: none; border: 0.5px solid rgba(235,229,233,0.08); }
+.row { border-bottom: 0.5px solid var(--rule-ink); padding: 24px 0; }
+.rows > .row:last-child { border-bottom: 0; }
+.rows-hover .row::before { inset: 0 calc(-1 * clamp(18px, 2.2vw, 30px)); background: rgba(14,13,15,0.035); }
+@media (hover: hover) {
+  .rows-hover .row:hover { color: var(--ink); }
+  .rows-hover .row:hover .muted { color: var(--ink-soft); }
+}
+.row-name { font-size: clamp(24px, 2.4vw, 36px); }
+.row-price { font-size: clamp(26px, 2.6vw, 40px); }
+.row-note { color: var(--gold-deep); font-weight: 600; }
+.on-ink .row-note { color: var(--gold); }
+.on-ink a.row { transition: background-color 0.25s; }
+
+.visit-list {
+  border-top: 0;
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 0 clamp(18px, 2.2vw, 28px);
+  box-shadow: var(--shadow);
+}
+.visit-item { border-bottom: 0.5px solid var(--rule-ink); }
+.visit-list > :last-child { border-bottom: 0; }
+
+/* Imágenes con esquinas redondeadas */
+.feature-img, .group-side .ph, .contact-img img, .manifesto .inline-img { border-radius: var(--r); }
+.feature-img { overflow: hidden; }
+.group-side .ph { border-radius: var(--r); box-shadow: var(--shadow); }
+.contact-img img { box-shadow: var(--shadow); }
+.prices { border-color: rgba(235,229,233,0.12); }
+
+/* Galería de Instagram: rejilla limpia y uniforme */
+.ig-handle { text-decoration: none; transition: color 0.25s; }
+.ig-handle:hover { color: var(--gold-deep); }
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1.2vw, 16px);
+}
+.ig-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--r);
+  background: var(--bone-2);
+  box-shadow: var(--shadow);
+  transform: translateZ(0);
+}
+.ig-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out); }
+.ig-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(14,13,15,0.45), rgba(14,13,15,0) 55%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.ig-tile:hover img { transform: scale(1.05); }
+.ig-tile:hover::after { opacity: 1; }
+
+/* Contacto: botones */
+.channel-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.channel-btns .btn { flex: 1 1 260px; }
+
+/* Cookies y modal estilo iOS */
+.cookie-banner {
+  border-radius: var(--r);
+  background: rgba(29,26,30,0.88);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.cookie-btn { border-radius: 999px; border: 0; background: rgba(235,229,233,0.14); }
+.cookie-btn:hover { background: rgba(235,229,233,0.24); color: var(--bone); }
+.cookie-btn-primary { background: var(--gold); color: var(--ink); }
+.cookie-btn-primary:hover { background: var(--gold-light); color: var(--ink); }
+.booking-modal-dialog { border-radius: var(--r-lg); box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+.booking-modal-close { border-radius: 50%; border: 0; background: rgba(235,229,233,0.14); }
+.booking-modal-close:hover { background: rgba(235,229,233,0.24); }
+
+@media (max-width: 960px) {
+  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+  .ig-grid:not(.is-feed) .ig-tile:first-child { grid-column: span 2; aspect-ratio: 16 / 10; }
+}
+@media (max-width: 600px) {
+  .channel-btns .btn { flex-basis: 100%; }
+  .booking-modal-dialog { border-radius: 0; }
+  .rows, .group .rows, .visit-list { border-radius: 18px; }
+}
+.group .rows { align-self: start; }
+.ig-handle { text-transform: none; display: inline-block; font-size: clamp(34px, 6vw, 96px); letter-spacing: -0.035em; overflow-wrap: anywhere; }
+
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -610,7 +800,7 @@ body.menu-open .cookie-banner { display: none; }
       <li><a href="/contacto.html">Contacto</a></li>
     </ul>
     <a class="nav-phone" href="tel:+34619778120">619 77 81 20</a>
-    <a class="btn" href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking target="_blank" rel="noopener">Reservar cita</a>
+    <a class="btn btn-gold" href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking target="_blank" rel="noopener">Reservar cita</a>
     <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </div>
 </header>
@@ -623,7 +813,7 @@ body.menu-open .cookie-banner { display: none; }
     <li><a href="/contacto.html">Contacto</a></li>
   </ul>
   <div class="menu-foot">
-    <a class="btn btn-solid" href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking target="_blank" rel="noopener">Reservar cita</a>
+    <a class="btn btn-gold" href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking target="_blank" rel="noopener">Reservar cita</a>
     <a class="btn btn-line" href="https://wa.me/34619778120" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp 619 77 81 20</a>
     <p>Avenida de Europa, 18 · 28224 Pozuelo de Alarcón</p>
   </div>
@@ -663,20 +853,16 @@ body.menu-open .cookie-banner { display: none; }
   <div class="wrap">
     <div class="sec-head rv">
       <div>
-        <span class="tag">Noir Pozuelo</span>
-        <h2 class="d-l" style="margin-top:22px">El local</h2>
+        <span class="tag">Instagram</span>
+        <h2 class="d-l" style="margin-top:22px"><a class="ig-handle" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener">@noirbarberclub</a></h2>
+        <p class="lead muted" style="margin-top:20px">Cada imagen, una historia. Cada corte, una firma.</p>
       </div>
-      <p class="lead muted">Avenida de Europa, 18, Pozuelo de Alarcón.</p>
+      <a class="btn btn-gold" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Seguir en Instagram</a>
     </div>
-    <div class="gallery rv">
-      <figure><img src="https://www.noirclub.es/wp-content/uploads/2025/12/barberia-pozuelo-alarcon-noir-15-scaled.jpg" alt="Interior de Noir Pozuelo" loading="lazy" onerror="this.onerror=null;this.src='/img/pozuelo.jpg'"></figure>
-      <figure><div class="ph"><img src="/img/header.jpg" class="crop-perfil" alt="Degradado a tijera" loading="lazy"></div></figure>
-      <figure><img src="/img/header.jpg" class="crop-detalle" alt="Tijera y peine" loading="lazy"></figure>
-      <figure><img src="/img/pozuelo.jpg" alt="Sillones de barbero de Noir Pozuelo" loading="lazy"></figure>
-    </div>
-    <div class="rv" style="margin-top:clamp(64px,8vw,120px)">
-      <span class="tag muted">Cada imagen, una historia. Cada corte, una firma.</span><br>
-      <a class="insta-link" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener">@noirbarberclub</a>
+    <div class="ig-grid rv" id="ig-grid" data-feed-id="">
+      <a class="ig-tile" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener"><img src="https://www.noirclub.es/wp-content/uploads/2025/12/barberia-pozuelo-alarcon-noir-15-scaled.jpg" alt="Noir Barber Club Pozuelo" loading="lazy" onerror="this.onerror=null;this.src='/img/pozuelo.jpg'"></a>
+      <a class="ig-tile" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener"><img src="/img/header.jpg" alt="Corte a tijera en Noir" loading="lazy" style="object-position:58% 40%"></a>
+      <a class="ig-tile" href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener"><img src="/img/pozuelo.jpg" alt="Interior de Noir Pozuelo" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -686,7 +872,7 @@ body.menu-open .cookie-banner { display: none; }
     <div class="cta-band-foot">
       <p class="lead muted">Elige tu hora. Nosotros hacemos el resto.</p>
       <div class="btn-row" style="margin-top:0">
-        <a class="btn btn-solid" href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking target="_blank" rel="noopener">Reservar cita</a>
+        <a class="btn btn-gold" href="https://booksy.com/es-es/instant-experiences/widget/174546" data-booking target="_blank" rel="noopener">Reservar cita</a>
         <a class="btn btn-line" href="https://wa.me/34619778120" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a>
       </div>
     </div>
@@ -717,8 +903,8 @@ body.menu-open .cookie-banner { display: none; }
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="tel:+34619778120">Móvil 619 77 81 20</a></li>
-          <li><a href="tel:+34915276687">Fijo 91 527 66 87</a></li>
+          <li><a href="tel:+34619778120">619 77 81 20</a></li>
+          <li><a href="tel:+34915276687">91 527 66 87</a></li>
           <li><a href="https://wa.me/34619778120" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="https://www.instagram.com/noirbarberclub" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
@@ -870,6 +1056,43 @@ body.menu-open .cookie-banner { display: none; }
     if (modal && modal.classList.contains('active')) closeBooking();
     else setMenu(false);
   });
+})();
+
+/* ─── Galería de Instagram (Behold.so) ───
+   Para activarla: crea un feed JSON gratis en behold.so conectando @noirbarberclub
+   y pega su ID en data-feed-id="" del bloque #ig-grid (nosotros.html).
+   Mientras no haya ID se muestran las fotos del local. */
+(function () {
+  var grid = document.getElementById('ig-grid');
+  if (!grid) return;
+  var feedId = (grid.getAttribute('data-feed-id') || '').trim();
+  if (!feedId || !window.fetch) return;
+  fetch('https://feeds.behold.so/' + encodeURIComponent(feedId))
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (data) {
+      var posts = (data && data.posts) || (Array.isArray(data) ? data : []);
+      var frag = document.createDocumentFragment();
+      posts.slice(0, 6).forEach(function (p) {
+        var size = p.sizes && (p.sizes.medium || p.sizes.large || p.sizes.small);
+        var src = (size && size.mediaUrl) || (p.mediaType === 'VIDEO' ? p.thumbnailUrl : p.mediaUrl);
+        var link = String(p.permalink || '');
+        if (!src || link.indexOf('https://www.instagram.com/') !== 0) return;
+        var a = document.createElement('a');
+        a.className = 'ig-tile';
+        a.href = link; a.target = '_blank'; a.rel = 'noopener';
+        var img = document.createElement('img');
+        img.src = src; img.loading = 'lazy';
+        img.alt = String(p.prunedCaption || p.caption || 'Publicación de Noir Barber Club en Instagram').slice(0, 120);
+        a.appendChild(img);
+        frag.appendChild(a);
+      });
+      if (frag.childNodes.length) {
+        grid.innerHTML = '';
+        grid.appendChild(frag);
+        grid.classList.add('is-feed');
+      }
+    })
+    .catch(function () { /* si falla, se quedan las fotos del local */ });
 })();
 
 </script>
