@@ -468,6 +468,7 @@ body.menu-open .menu { clip-path: inset(0 0 0 0); }
   gap: clamp(10px, 1.2vw, 18px);
   overflow-x: auto;
   padding: 0 var(--gutter) 12px;
+  scroll-padding: 0 var(--gutter);
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
@@ -667,6 +668,9 @@ a.visit-item:hover .v { transform: translateX(8px); color: var(--gold-2); }
 
 @media (max-width: 600px) {
   body { font-size: 15px; }
+  .tag { font-size: 11px; letter-spacing: 0.1em; }
+  .group-side .ph { margin-top: 20px; }
+  .group-side .ph img { max-width: none; aspect-ratio: 4 / 3; margin-top: 0; }
   .d-xl { font-size: clamp(48px, 13.5vw, 76px); }
   .d-l { font-size: clamp(38px, 11vw, 58px); }
   .hero-actions .btn, .btn-row .btn, .split-body .btn { width: 100%; }
