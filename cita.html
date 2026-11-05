@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Reserva tu cita · NOiR {Barber Club} Pozuelo</title>
+<meta name="description" content="Reserva tu cita en Noir Barber Club, Avenida de Europa 18, Pozuelo de Alarcón. Elige barbero, servicio y hora en 1 minuto.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0a09">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Noir Barber Club">
+<meta property="og:title" content="Reserva tu cita · NOiR {Barber Club}">
+<meta property="og:description" content="Elige barbero, servicio y hora en 1 minuto. Avenida de Europa 18, Pozuelo.">
+<meta property="og:image" content="https://www.noirbarberclub.com/img/hero-concept.jpg">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v=8">
+<link rel="preload" as="image" href="/img/hero-concept.jpg" fetchpriority="high">
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+  .cita {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .cita-bg { position: absolute; inset: 0; }
+  .cita-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+  .cita-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(11,10,9,0.5), rgba(11,10,9,0.5)),
+                linear-gradient(180deg, rgba(11,10,9,0.72) 0%, rgba(11,10,9,0.25) 40%, rgba(11,10,9,0.92) 100%);
+  }
+  .cita-top { position: relative; z-index: 1; display: flex; justify-content: center; padding: clamp(24px, 4vh, 40px) var(--gutter) 0; }
+  .cita-top svg { height: 56px; width: auto; color: var(--bone); }
+  .cita-main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: clamp(32px, 5vh, 56px) var(--gutter);
+    max-width: 680px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .cita-main .tag { justify-content: center; margin-bottom: 20px; }
+  .cita-main .tag::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
+  .cita-title { font-family: var(--display); font-weight: 500; font-size: clamp(38px, 8.5vw, 72px); line-height: 0.96; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 18px; }
+  .cita-title em { font-family: var(--serif); font-style: italic; text-transform: none; font-weight: 500; font-size: 1.02em; letter-spacing: -0.01em; color: var(--gold); }
+  .cita-sub { font-size: clamp(15px, 1.8vw, 18px); font-weight: 300; color: var(--bone); max-width: 42ch; margin: 0 auto 28px; line-height: 1.7; }
+  .cita-points { list-style: none; display: grid; gap: 10px; margin: 0 0 32px; padding: 0; }
+  .cita-points li { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--bone); }
+  .cita-points li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .cita-cta { width: 100%; max-width: 420px; display: grid; gap: 12px; }
+  .cita-cta .btn { width: 100%; min-height: 62px; font-size: 16px; }
+  .cita-cta .btn-gold { box-shadow: 0 12px 40px rgba(198,162,104,0.25); }
+  .cita-note { font-size: 12.5px; color: var(--bone-soft); margin-top: 6px; }
+  .cita-prices {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    padding: 18px var(--gutter);
+    border-top: 1px solid var(--rule-gold);
+    background: rgba(11,10,9,0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .cita-prices span { font-size: 13px; font-weight: 500; color: var(--bone-soft); }
+  .cita-prices b { font-family: var(--display); font-weight: 600; color: var(--gold); font-size: 15px; letter-spacing: -0.02em; }
+  .cita-foot { position: relative; z-index: 1; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 20px; padding: 14px var(--gutter) calc(14px + env(safe-area-inset-bottom)); font-size: 11.5px; color: var(--bone-soft); background: var(--ink); }
+  .cita-foot a { text-decoration: none; }
+  .cita-foot a:hover { color: var(--bone); }
+  @media (max-width: 600px) {
+    .cita-top svg { height: 48px; }
+    .cita-points li { font-size: 13px; }
+  }
+</style>
+<script>
+/* ── Meta Pixel (gateado por consentimiento de cookies) ──
+   PEGA AQUÍ EL ID DEL PIXEL cuando lo tengas: */
+var META_PIXEL_ID = '';
+
+function noirLoadPixel() {
+  if (!META_PIXEL_ID || window.fbq) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', { content_name: 'landing-cita' });
+}
+</script>
+</head>
+<body>
+
+<div class="cita">
+  <div class="cita-bg" aria-hidden="true">
+    <img src="/img/hero-concept.jpg" alt="" fetchpriority="high">
+  </div>
+
+  <header class="cita-top">
+    <a href="/" aria-label="Noir Barber Club">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 218.56 154.74" aria-hidden="true" focusable="false">
+        <defs>
+          <style>.ctcls-1{font-family:PlayfairDisplay-Regular,'Playfair Display';font-size:35px;}.ctcls-1,.ctcls-2{fill:currentColor;}.ctcls-6{letter-spacing:.04em;}</style>
+        </defs>
+        <path class="ctcls-2" d="M124.64,31.37c-7.88-8.17-17.2-12.25-27.95-12.25s-20.14,3.6-27.92,10.81c-8.77,8.14-13.24,18.6-13.42,31.39L22.48,21.01H0v2.26c2.4,0,4.19.18,5.38.55,2.4.77,4.23,1.61,5.47,2.51,1.24.9,3.06,2.75,5.47,5.56v57.62c0,4.64-.45,7.62-1.34,8.92-1.47,2.12-3.97,3.18-7.51,3.18h-2.87v2.26h28.84v-2.26h-2.93c-3.22,0-5.6-.85-7.15-2.57-1.1-1.26-1.65-4.44-1.65-9.53v-51.02l43.33,52.93s0,0,0,0c.62.74,1.26,1.48,1.94,2.19,7.76,8.11,17.34,12.16,28.75,12.16s20.9-4.15,28.84-12.46c7.94-8.31,11.91-18.76,11.91-31.34s-3.94-22.41-11.82-30.58ZM114.86,92.32c-5.07,6.07-11.5,9.1-19.28,9.1-7.29,0-13.16-2.77-17.6-8.31-5.78-7.29-8.68-17.7-8.68-31.22s2.79-23.22,8.37-30.06c4.48-5.5,10.43-8.25,17.84-8.25,7.9,0,14.09,2.77,18.57,8.31,5.58,6.97,8.37,17.54,8.37,31.71,0,13.08-2.54,22.65-7.61,28.72Z"/>
+        <path class="ctcls-2" d="M205.86,98.08c-2.81-1.82-6.17-5.51-10.08-11.06l-17.11-24.18c6.97-1.57,12.11-4.27,15.43-8.08,3.32-3.81,4.98-8.31,4.98-13.49,0-4.85-1.46-9.02-4.37-12.53-2.91-3.5-4.89-4.39-9.07-5.7-4.18-1.31-8.37-2.09-21.91-2.09v2.32h3.88c5.34,0,10.4,2.67,13.64,5.97,3.24,3.29,4.08,7.57,4.08,12.84s-2.01,9.82-6.02,13.3c-3.61,3.14-8.81,4.85-15.58,5.17v3.21c3.18.11,6.12,1.78,7.88,4.48l10.96,16.84c13.48,18.79,9.76,18.79,34.29,18.79v-2.3c-4.52-.5-8.19-1.66-11-3.48Z"/>
+        <path class="ctcls-2" d="M134.67,23.27h2.93c1.96,0,3.83.49,5.62,1.47,1.26.73,2.1,1.61,2.51,2.63.53,1.34.79,4.11.79,8.31v53.52c0,4.97-.49,8.11-1.47,9.41-1.55,2-4.03,2.99-7.45,2.99h-2.93v2.26h23.58V21.01h-23.58v2.26Z"/>
+        <circle class="ctcls-2" cx="150.96" cy="7.29" r="7.29"/>
+        <text class="ctcls-1" transform="translate(3.99 146.31)"><tspan class="ctcls-6" x="0" y="0">{</tspan><tspan x="11.9" y="0">Ba</tspan><tspan x="51.48" y="0">r</tspan><tspan x="66.53" y="0">be</tspan><tspan x="104.3" y="0">r</tspan><tspan x="119.31" y="0" xml:space="preserve"> Clu</tspan><tspan x="183.15" y="0">b</tspan><tspan x="202.33" y="0">}</tspan></text>
+      </svg>
+    </a>
+  </header>
+
+  <main class="cita-main">
+    <span class="tag">Barber Club · Pozuelo de Alarcón</span>
+    <h1 class="cita-title">Tu cita,<br><em>en un minuto</em></h1>
+    <p class="cita-sub">Elige barbero, servicio y hora. Sin llamadas, sin esperas. Esto no es una peluquería.</p>
+    <ul class="cita-points">
+      <li>Reserva online al instante</li>
+      <li>Elige a tu barbero y tu hora</li>
+      <li>Avenida de Europa, 18 · Pozuelo</li>
+    </ul>
+    <div class="cita-cta">
+      <a class="btn btn-gold" id="cta-booksy" href="https://booksy.com/es-es/instant-experiences/widget/174546" rel="noopener">Reservar mi cita</a>
+      <a class="btn btn-line" id="cta-whatsapp" href="https://wa.me/34619778120" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+      <p class="cita-note">Confirmación al momento. Cancela o cambia tu cita cuando quieras.</p>
+    </div>
+  </main>
+
+  <div class="cita-prices" aria-label="Precios orientativos">
+    <span>Corte Noir <b>17€</b></span>
+    <span>Arreglo de barba <b>16€</b></span>
+    <span>Noir Experience <b>30€</b></span>
+  </div>
+
+  <footer class="cita-foot">
+    <span>© Noir Barber Club</span>
+    <a href="/aviso-legal.html">Aviso legal</a>
+    <a href="/privacidad.html">Privacidad</a>
+    <a href="/cookies.html">Cookies</a>
+  </footer>
+</div>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies propias y de terceros para que la web funcione correctamente y mejorar tu experiencia. Más información en nuestra <a href="/cookies.html">Política de Cookies</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn" data-cookie-reject>Rechazar</button>
+    <button type="button" class="cookie-btn cookie-btn-primary" data-cookie-accept>Aceptar</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ─── Cookies (misma clave que el resto del sitio) + pixel tras consentimiento
+  var KEY = 'noir_cookie_consent';
+  var banner = document.getElementById('cookie-banner');
+  var stored = null;
+  try { stored = localStorage.getItem(KEY); } catch (e) {}
+  if (stored === 'accepted') noirLoadPixel();
+  if (!stored && banner) banner.hidden = false;
+  if (banner) {
+    banner.addEventListener('click', function (e) {
+      var v = e.target.closest('[data-cookie-accept]') ? 'accepted' : e.target.closest('[data-cookie-reject]') ? 'rejected' : null;
+      if (!v) return;
+      try { localStorage.setItem(KEY, v); } catch (err) {}
+      banner.hidden = true;
+      if (v === 'accepted') noirLoadPixel();
+    });
+  }
+
+  // ─── CTA: evento al pixel y salto a Booksy en la misma pestaña
+  var booksy = document.getElementById('cta-booksy');
+  if (booksy) {
+    booksy.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = booksy.href;
+      if (window.fbq) fbq('track', 'Schedule', { content_name: 'booksy-cita' });
+      setTimeout(function () { window.location.href = url; }, 250);
+    });
+  }
+  var wa = document.getElementById('cta-whatsapp');
+  if (wa) {
+    wa.addEventListener('click', function () {
+      if (window.fbq) fbq('track', 'Contact', { content_name: 'whatsapp-cita' });
+    });
+  }
+})();
+</script>
+</body>
+</html>

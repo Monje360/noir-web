@@ -1,3 +1,5 @@
 {
-  "rewrites": []
+  "rewrites": [
+    { "source": "/cita", "destination": "/cita.html" }
+  ]
 }
