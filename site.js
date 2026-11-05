@@ -61,18 +61,44 @@
   watchVideos(document);
   window.noirWatchVideos = watchVideos;
 
+  // ─── Meta Pixel NOIR (se carga solo con el consentimiento aceptado)
+  var META_PIXEL_ID = '1859719498802713';
+  function loadPixel() {
+    if (!META_PIXEL_ID || window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', META_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+
+  // Clics: enlaces a Booksy → Schedule; WhatsApp y teléfono → Contact
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a');
+    if (!a || !window.fbq) return;
+    var href = a.href || '';
+    var ev = href.indexOf('booksy.com') > -1 ? 'Schedule'
+           : (href.indexOf('wa.me') > -1 || href.indexOf('tel:') === 0) ? 'Contact'
+           : null;
+    if (ev) fbq('track', ev);
+  });
+
   // ─── Cookies
   var STORAGE_KEY = 'noir_cookie_consent';
   var banner = document.getElementById('cookie-banner');
+  var stored = null;
+  try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  if (stored === 'accepted') loadPixel();
   if (banner) {
-    var stored = null;
-    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     if (!stored) banner.hidden = false;
     banner.addEventListener('click', function (e) {
       var v = e.target.closest('[data-cookie-accept]') ? 'accepted' : e.target.closest('[data-cookie-reject]') ? 'rejected' : null;
       if (!v) return;
       try { localStorage.setItem(STORAGE_KEY, v); } catch (err) {}
       banner.hidden = true;
+      if (v === 'accepted') loadPixel();
     });
   }
 
