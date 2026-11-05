@@ -143,7 +143,6 @@ function noirLoadPixel() {
     </ul>
     <div class="cita-cta">
       <a class="btn btn-gold" id="cta-booksy" href="https://booksy.com/es-es/instant-experiences/widget/174546" rel="noopener">Reservar mi cita</a>
-      <a class="btn btn-line" id="cta-whatsapp" href="https://wa.me/34619778120" target="_blank" rel="noopener">Reservar por WhatsApp</a>
       <p class="cita-note">Confirmación al momento. Cancela o cambia tu cita cuando quieras.</p>
     </div>
   </main>
@@ -199,12 +198,6 @@ function noirLoadPixel() {
       var url = booksy.href;
       if (window.fbq) fbq('track', 'Schedule', { content_name: 'booksy-cita' });
       setTimeout(function () { window.location.href = url; }, 250);
-    });
-  }
-  var wa = document.getElementById('cta-whatsapp');
-  if (wa) {
-    wa.addEventListener('click', function () {
-      if (window.fbq) fbq('track', 'Contact', { content_name: 'whatsapp-cita' });
     });
   }
 })();
