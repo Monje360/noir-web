@@ -216,3 +216,76 @@
     })
     .catch(function () { /* si falla, se quedan las fotos del local */ });
 })();
+
+/* ─── Black Friday · Bonos (barra superior, pop-up de bienvenida y enlaces) ───
+   PROMO_HASTA: último día de la promoción en formato 'AAAA-MM-DD'.
+   Déjalo vacío ('') para que se muestre sin fecha de fin.
+   A partir del día siguiente, la barra, el pop-up y las secciones de bonos desaparecen solos. */
+(function () {
+  var PROMO_HASTA = '';
+  var POPUP_DELAY = 2500;
+
+  var root = document.documentElement;
+  if (PROMO_HASTA) {
+    var fin = new Date(PROMO_HASTA + 'T23:59:59');
+    if (!isNaN(fin) && new Date() > fin) { root.classList.add('promo-off'); return; }
+  }
+
+  function ss(key, val) {
+    try { if (val === undefined) return sessionStorage.getItem(key); sessionStorage.setItem(key, val); } catch (e) { return null; }
+  }
+  function track(name) { if (window.fbq) { try { fbq('trackCustom', name); } catch (e) {} } }
+
+  // Barra superior
+  var bar = document.getElementById('promo-bar');
+  if (bar) {
+    if (ss('noir_promo_bar') === 'closed') bar.hidden = true;
+    else document.body.classList.add('has-promo');
+    var barClose = bar.querySelector('.promo-bar-close');
+    if (barClose) barClose.addEventListener('click', function () {
+      bar.hidden = true; document.body.classList.remove('has-promo'); ss('noir_promo_bar', 'closed');
+    });
+  }
+
+  // Enlaces "Ver bonos": si la página tiene la sección, baja hasta ella
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-bonos-link]');
+    if (!a) return;
+    track('PromoBonosClick');
+    var target = document.getElementById('bonos');
+    if (target) {
+      e.preventDefault();
+      closePop();
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }
+  });
+
+  // Pop-up de bienvenida: una vez por visita
+  var pop = document.getElementById('promo-pop');
+  var lastFocus = null;
+  function openPop() {
+    if (!pop) return;
+    var busy = document.body.classList.contains('modal-open') || document.body.classList.contains('menu-open');
+    if (busy) { setTimeout(openPop, 4000); return; }
+    lastFocus = document.activeElement;
+    pop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    ss('noir_promo_pop', 'shown');
+    var btn = pop.querySelector('.promo-pop-close');
+    if (btn) btn.focus({ preventScroll: true });
+    track('PromoBonosVista');
+  }
+  function closePop() {
+    if (!pop || pop.hidden) return;
+    pop.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+  if (pop) {
+    pop.addEventListener('click', function (e) {
+      if (e.target.closest('[data-promo-close]') || e.target.closest('[data-booking]')) closePop();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePop(); });
+    if (ss('noir_promo_pop') !== 'shown' && location.hash !== '#bonos') setTimeout(openPop, POPUP_DELAY);
+  }
+})();
